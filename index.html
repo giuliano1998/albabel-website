@@ -141,11 +141,19 @@
 
 <!-- ===================== HERO ===================== -->
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A1E3D]">
-  <div class="absolute inset-0 hero-overlay z-10"></div>
-  <!-- Decorative rings -->
-  <div class="absolute top-24 right-16 w-72 h-72 border border-[#D6AD60]/10 rounded-full pointer-events-none"></div>
-  <div class="absolute top-36 right-28 w-52 h-52 border border-[#D6AD60]/08 rounded-full pointer-events-none"></div>
-  <div class="absolute bottom-16 left-8 w-[420px] h-[420px] border border-[#D6AD60]/05 rounded-full pointer-events-none"></div>
+
+  <!-- Video background -->
+  <video
+    autoplay muted loop playsinline
+    class="absolute inset-0 w-full h-full object-cover z-0"
+    poster="">
+    <source src="assets/videos/hero-web.mp4" type="video/mp4">
+  </video>
+
+  <!-- Multi-layer overlay: garantiza legibilidad del texto sobre cualquier frame del video -->
+  <div class="absolute inset-0 z-10" style="background: linear-gradient(180deg, rgba(10,30,61,0.75) 0%, rgba(15,44,89,0.82) 40%, rgba(10,30,61,0.88) 100%);"></div>
+  <!-- Viñeta lateral extra para profundidad -->
+  <div class="absolute inset-0 z-10" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(10,30,61,0.55) 100%);"></div>
 
   <div class="relative z-20 max-w-[1200px] mx-auto px-6 py-36 text-center">
 
@@ -155,17 +163,17 @@
            onerror="this.style.display='none'">
     </div>
 
-    <div class="inline-flex items-center gap-2 bg-[#D6AD60]/10 border border-[#D6AD60]/30 text-[#D6AD60] text-[11px] font-black tracking-[0.2em] uppercase px-5 py-2 mb-8">
+    <div class="inline-flex items-center gap-2 bg-[#D6AD60]/15 border border-[#D6AD60]/50 text-[#D6AD60] text-[11px] font-black tracking-[0.2em] uppercase px-5 py-2 mb-8" style="text-shadow: 0 1px 8px rgba(0,0,0,0.6);">
       <span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full"></span>
       Importadora &amp; Gestión Aduanera — China · Argentina
     </div>
 
-    <h1 class="text-4xl sm:text-5xl md:text-[64px] font-black text-white uppercase tracking-[0.06em] leading-[1.1] mb-6 max-w-5xl mx-auto">
+    <h1 class="text-4xl sm:text-5xl md:text-[64px] font-black text-white uppercase tracking-[0.06em] leading-[1.1] mb-6 max-w-5xl mx-auto" style="text-shadow: 0 2px 24px rgba(0,0,0,0.7), 0 1px 6px rgba(0,0,0,0.5);">
       Tu Puente Comercial<br>
-      <span class="text-[#D6AD60]">Directo</span> entre<br class="sm:hidden"> China y Argentina
+      <span class="text-[#D6AD60]" style="text-shadow: 0 2px 20px rgba(0,0,0,0.6);">Directo</span> entre<br class="sm:hidden"> China y Argentina
     </h1>
 
-    <p class="text-base md:text-lg text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+    <p class="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-light" style="text-shadow: 0 1px 12px rgba(0,0,0,0.8);">
       Gestionamos tu importación de principio a fin — desde la auditoría del proveedor en China hasta la entrega en tu depósito en Argentina — con total transparencia de costos y trazabilidad 24/7.
     </p>
 

@@ -1,2 +1,9 @@
 .DS_Store
 assets/videos/hero.mp4
+
+# Internal tool directories
+.agents/
+.claude/
+.netlify/
+skills/
+skills-lock.json

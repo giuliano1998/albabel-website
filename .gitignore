@@ -11,3 +11,4 @@ skills-lock.json
 node_modules
 dist
 vite.config.js.timestamp-*
+*.fuse_hidden*

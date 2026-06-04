@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Albabel SRL - Importadora y Gestión Aduanera China-Argentina. 7 servicios integrales: gestión aduanera, auditoría de proveedores, logística, consultoría, viajes a China, marca propia y fotografía. +500 importaciones gestionadas.">
+  <meta name="keywords" content="importadora argentina, gestión aduanera, comercio exterior china argentina, importación china, logística internacional, despachante aduanero buenos aires, auditoría proveedores china, consultoría importación">
+  <meta property="og:title" content="ALBABEL SRL | Importadora y Gestión Aduanera China-Argentina">
+  <meta property="og:description" content="Tu puente comercial directo entre China y Argentina. 7 servicios integrales. +500 importaciones gestionadas. Presencia real en Argentina, Paraguay y China.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://albabel.com/">
+  <meta name="theme-color" content="#0F2C59">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>ALBABEL SRL | Importadora y Gestión Aduanera China-Argentina</title>
+
+  <!-- Google Analytics — reemplazar GA_MEASUREMENT_ID con tu ID real -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sapphire': '#0F2C59',
+            'sapphire-dark': '#0A1E3D',
+            'sand': '#F8F9FA',
+            'emerald': '#1C6758',
+            'gold': '#D6AD60',
+          },
+          fontFamily: { 'sans': ['Montserrat', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { font-family: 'Montserrat', sans-serif; }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* ── Keyframes ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-7px); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    @keyframes lineGrow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+    @keyframes iconPop {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(15,44,89,0.96) 0%, rgba(10,30,61,0.88) 55%, rgba(28,103,88,0.25) 100%);
+    }
+
+    /* Hero badge float */
+    .hero-badge { animation: float 3.6s ease-in-out infinite; }
+
+    /* ── Reveal variants ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-52px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(52px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.88);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    /* Decorative animated underline */
+    .animated-line {
+      display: block;
+      height: 2px;
+      background: #D6AD60;
+      margin: 1rem auto 0;
+      transform-origin: left center;
+      transform: scaleX(0);
+      width: 3.5rem;
+      transition: transform 0.7s ease 0.3s;
+    }
+    .animated-line.visible { transform: scaleX(1); }
+
+    /* Stats number scale on hover */
+    .stat-num {
+      font-variant-numeric: tabular-nums;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+    .stat-block:hover .stat-num { transform: scale(1.1); }
+
+    /* Shimmer on primary CTA buttons */
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -80%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      animation: shimmer 3.2s ease-in-out infinite;
+    }
+
+    /* Problem card icon pop on hover */
+    .problem-card:hover .problem-icon {
+      animation: iconPop 0.4s ease forwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right, .reveal-scale {
+        opacity: 1; transform: none; transition: none;
+      }
+      .hero-badge { animation: none; }
+      .btn-shimmer::after { animation: none; }
+      @keyframes fadeInUp { from {} to {} }
+      .animate-bounce, .animate-ping { animation: none; }
+      .service-card { transition: none; }
+      .nav-link::after { transition: none; }
+      .carousel-track { transition: none !important; }
+      .faq-answer { transition: none !important; }
+      .animated-line { transform: scaleX(1); transition: none; }
+    }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: #D6AD60;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after { width: 100%; }
+
+    .service-card {
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      filter: drop-shadow(0 20px 40px rgba(15,44,89,0.18));
+    }
+
+    a, button, [role="button"] { touch-action: manipulation; }
+    .border-l-gold { border-left: 4px solid #D6AD60; }
+    .stat-num { font-variant-numeric: tabular-nums; }
+
+    .geo-bg {
+      background-image: repeating-linear-gradient(
+        45deg, rgba(214,173,96,0.06) 0px, rgba(214,173,96,0.06) 1px,
+        transparent 1px, transparent 40px
+      );
+    }
+
+    /* 16:9 video wrapper */
+    .video-16-9 {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(15,44,89,0.2);
+    }
+    .video-16-9 iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+
+    /* 9:16 vertical video wrapper */
+    .video-9-16 {
+      position: relative;
+      width: 100%;
+      padding-bottom: 177.78%;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .video-9-16 iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+
+    /* Carousel */
+    .carousel-wrapper { overflow: hidden; }
+    .carousel-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.42s ease;
+      will-change: transform;
+    }
+    .carousel-card { flex: 0 0 calc(33.333% - 16px); }
+    @media (max-width: 1023px) {
+      .carousel-card { flex: 0 0 calc(50% - 12px); }
+    }
+    @media (max-width: 639px) {
+      .carousel-card { flex: 0 0 260px; }
+    }
+
+    .carousel-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(15,44,89,0.2);
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+    .carousel-dot.active {
+      background: #1C6758;
+      transform: scale(1.3);
+    }
+
+    /* FAQ Accordion */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s ease;
+    }
+    .faq-answer.open { max-height: 600px; }
+
+    .faq-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: #0F2C59;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: background 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+    .faq-item.open .faq-icon {
+      background: #1C6758;
+      transform: rotate(45deg);
+    }
+
+    /* Diferencial cards hover */
+    .diferencial-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .diferencial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15,44,89,0.12);
+    }
+
+    /* Problem cards */
+    .problem-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .problem-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15,44,89,0.1);
+    }
+  </style>
+</head>
+<body class="bg-[#F8F9FA] text-[#0F2C59]">
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-0 w-full z-50 bg-[#0F2C59] border-b border-[#D6AD60]/30 transition-all duration-300">
+  <div class="max-w-[1200px] mx-auto px-6 py-3 flex items-center justify-between">
+
+    <a href="#hero" class="shrink-0">
+      <img src="assets/images/logos/Albabel-letrasblancas.png" alt="Albabel SRL" class="h-24 w-auto">
+    </a>
+
+    <div class="hidden lg:flex items-center gap-7">
+      <a href="#servicios" class="nav-link text-[11px] font-bold tracking-[0.15em] text-white/75 hover:text-[#D6AD60] uppercase transition-colors">Servicios</a>
+      <a href="#nosotros"  class="nav-link text-[11px] font-bold tracking-[0.15em] text-white/75 hover:text-[#D6AD60] uppercase transition-colors">Nosotros</a>
+      <a href="#proceso"   class="nav-link text-[11px] font-bold tracking-[0.15em] text-white/75 hover:text-[#D6AD60] uppercase transition-colors">Proceso</a>
+      <a href="#alianzas"  class="nav-link text-[11px] font-bold tracking-[0.15em] text-white/75 hover:text-[#D6AD60] uppercase transition-colors">Alianzas</a>
+      <a href="#faq"       class="nav-link text-[11px] font-bold tracking-[0.15em] text-white/75 hover:text-[#D6AD60] uppercase transition-colors">FAQ</a>
+      <a href="#contacto"  class="nav-link text-[11px] font-bold tracking-[0.15em] text-white/75 hover:text-[#D6AD60] uppercase transition-colors">Contacto</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a href="#contacto"
+         class="hidden sm:inline-block bg-[#1C6758] text-white px-6 py-2.5 text-[11px] font-black tracking-[0.15em] uppercase hover:bg-[#1C6758]/90 transition-all hover:scale-105 shadow-md">
+        Consulta Gratis
+      </a>
+      <button id="menu-btn" class="lg:hidden text-white p-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="material-symbols-outlined text-2xl" aria-hidden="true">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden bg-[#0A1E3D] border-t border-[#D6AD60]/15" aria-hidden="true">
+    <div class="px-6 py-5 flex flex-col gap-4">
+      <a href="#servicios" class="text-white/80 text-sm font-bold tracking-widest uppercase">Servicios</a>
+      <a href="#nosotros"  class="text-white/80 text-sm font-bold tracking-widest uppercase">Nosotros</a>
+      <a href="#proceso"   class="text-white/80 text-sm font-bold tracking-widest uppercase">Proceso</a>
+      <a href="#alianzas"  class="text-white/80 text-sm font-bold tracking-widest uppercase">Alianzas</a>
+      <a href="#faq"       class="text-white/80 text-sm font-bold tracking-widest uppercase">FAQ</a>
+      <a href="#contacto"  class="text-white/80 text-sm font-bold tracking-widest uppercase">Contacto</a>
+      <a href="https://wa.me/5491135635778?text=Hola%20Albabel%2C%20quisiera%20hacer%20una%20consulta."
+         target="_blank"
+         class="bg-[#1C6758] text-white text-xs font-black tracking-widest uppercase text-center py-3">
+        Hablar con un Asesor →
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A1E3D]">
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0" poster="">
+    <source src="assets/videos/hero-web.mp4" type="video/mp4">
+  </video>
+  <div class="absolute inset-0 z-10" style="background: linear-gradient(180deg, rgba(10,30,61,0.75) 0%, rgba(15,44,89,0.82) 40%, rgba(10,30,61,0.88) 100%);"></div>
+  <div class="absolute inset-0 z-10" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(10,30,61,0.55) 100%);"></div>
+
+  <div class="relative z-20 max-w-[1200px] mx-auto px-6 py-36 text-center">
+    <div class="hero-badge inline-flex items-center gap-2 bg-[#D6AD60]/15 border border-[#D6AD60]/50 text-[#D6AD60] text-[11px] font-black tracking-[0.2em] uppercase px-5 py-2 mb-8" style="text-shadow: 0 1px 8px rgba(0,0,0,0.6);">
+      <span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full"></span>
+      Importadora Registrada · CUIT 30-71536298-4 · Argentina
+    </div>
+    <h1 class="text-4xl sm:text-5xl md:text-[64px] font-black text-white uppercase tracking-[0.06em] leading-[1.1] mb-6 max-w-5xl mx-auto" style="text-shadow: 0 2px 24px rgba(0,0,0,0.7), 0 1px 6px rgba(0,0,0,0.5);">
+      Más de 500 Empresas<br>
+      <span class="text-[#D6AD60]" style="text-shadow: 0 2px 20px rgba(0,0,0,0.6);">Importaron Desde China</span><br>
+      con Nosotros. Tu Turno.
+    </h1>
+    <p class="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-light" style="text-shadow: 0 1px 12px rgba(0,0,0,0.8);">
+      Gestionamos todo: proveedor, fábrica, aduana y logística puerta a puerta. Presencia real en Argentina, Paraguay y China. Consulta inicial gratis.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#contacto" class="bg-[#1C6758] text-white px-10 py-4 font-black text-[12px] tracking-[0.2em] uppercase hover:bg-[#1C6758]/90 transition-all hover:scale-105 shadow-2xl">
+        Pedir Mi Consulta Gratis
+      </a>
+      <a href="#casos" class="border border-[#D6AD60] text-[#D6AD60] px-10 py-4 font-black text-[12px] tracking-[0.2em] uppercase hover:bg-[#D6AD60]/10 transition-all">
+        Ver Casos de Éxito
+      </a>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 animate-bounce" aria-hidden="true">
+      <span class="material-symbols-outlined text-4xl">keyboard_arrow_down</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATS BAR ===================== -->
+<section class="bg-[#D6AD60] py-5" aria-label="Estadísticas">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#0F2C59]/15">
+      <div class="stat-block text-center py-2 px-4">
+        <div class="stat-num text-3xl font-black text-[#0F2C59]" data-target="+500">+500</div>
+        <div class="text-[10px] font-black tracking-[0.15em] uppercase text-[#0F2C59]/65 mt-0.5">Importaciones Gestionadas</div>
+      </div>
+      <div class="stat-block text-center py-2 px-4">
+        <div class="stat-num text-3xl font-black text-[#0F2C59]" data-target="+20">20+</div>
+        <div class="text-[10px] font-black tracking-[0.15em] uppercase text-[#0F2C59]/65 mt-0.5">Años de Experiencia</div>
+      </div>
+      <div class="stat-block text-center py-2 px-4">
+        <div class="stat-num text-3xl font-black text-[#0F2C59]" data-target="3">3</div>
+        <div class="text-[10px] font-black tracking-[0.15em] uppercase text-[#0F2C59]/65 mt-0.5">Países con Presencia</div>
+      </div>
+      <div class="stat-block text-center py-2 px-4">
+        <div class="stat-num text-3xl font-black text-[#0F2C59]">24/7</div>
+        <div class="text-[10px] font-black tracking-[0.15em] uppercase text-[#0F2C59]/65 mt-0.5">Soporte GMT-3 y GMT+8</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EL PROBLEMA ===================== -->
+<section id="problemas" class="py-20 px-6 bg-white border-b border-gray-100">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-14 reveal">
+      <div class="text-[11px] font-black tracking-[0.2em] text-[#1C6758] uppercase mb-4">El Problema</div>
+      <h2 class="text-3xl md:text-4xl font-black text-[#0F2C59] uppercase tracking-wide leading-tight">Lo Que Pasa Cuando<br class="hidden sm:block"> Importás Solo — Sin Experiencia</h2>
+      <div class="w-14 h-0.5 bg-[#D6AD60] mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="problem-card bg-white border border-gray-100 rounded-lg p-7 text-center shadow-sm reveal-scale">
+        <div class="problem-icon w-14 h-14 bg-red-50 flex items-center justify-center mx-auto mb-5 rounded-lg">
+          <span class="material-symbols-outlined text-red-500 text-3xl" style="font-variation-settings:'FILL' 1">warning</span>
+        </div>
+        <h3 class="text-base font-black text-[#0F2C59] uppercase tracking-wide mb-3">Te Mandan Basura — o Nada</h3>
+        <p class="text-[#0F2C59]/60 text-sm font-light leading-relaxed">Pagás adelanto, el proveedor desaparece. O llega el producto diferente a lo que te mostraron. Sin auditoría presencial, no hay garantía.</p>
+      </div>
+      <div class="problem-card bg-white border border-gray-100 rounded-lg p-7 text-center shadow-sm reveal-scale" style="transition-delay:0.1s">
+        <div class="problem-icon w-14 h-14 bg-amber-50 flex items-center justify-center mx-auto mb-5 rounded-lg">
+          <span class="material-symbols-outlined text-amber-600 text-3xl" style="font-variation-settings:'FILL' 1">gavel</span>
+        </div>
+        <h3 class="text-base font-black text-[#0F2C59] uppercase tracking-wide mb-3">Mercadería Retenida en Puerto</h3>
+        <p class="text-[#0F2C59]/60 text-sm font-light leading-relaxed">ARCA, SIMI, posiciones arancelarias, documentación incompleta. Un error y tu carga queda trabada semanas — con costos de almacenaje que te comen el margen.</p>
+      </div>
+      <div class="problem-card bg-white border border-gray-100 rounded-lg p-7 text-center shadow-sm reveal-scale" style="transition-delay:0.2s">
+        <div class="problem-icon w-14 h-14 bg-orange-50 flex items-center justify-center mx-auto mb-5 rounded-lg">
+          <span class="material-symbols-outlined text-orange-500 text-3xl" style="font-variation-settings:'FILL' 1">local_shipping</span>
+        </div>
+        <h3 class="text-base font-black text-[#0F2C59] uppercase tracking-wide mb-3">Tu Pedido Llega Roto, Tarde o No Llega</h3>
+        <p class="text-[#0F2C59]/60 text-sm font-light leading-relaxed">Sin coordinación real entre China y Argentina, los plazos son estimativos. El seguro de carga que no contrataste no cubre el daño.</p>
+      </div>
+      <div class="problem-card bg-white border border-gray-100 rounded-lg p-7 text-center shadow-sm reveal-scale" style="transition-delay:0.3s">
+        <div class="problem-icon w-14 h-14 bg-rose-50 flex items-center justify-center mx-auto mb-5 rounded-lg">
+          <span class="material-symbols-outlined text-rose-500 text-3xl" style="font-variation-settings:'FILL' 1">currency_exchange</span>
+        </div>
+        <h3 class="text-base font-black text-[#0F2C59] uppercase tracking-wide mb-3">Comprás Caro lo Que Podías Comprar Barato</h3>
+        <p class="text-[#0F2C59]/60 text-sm font-light leading-relaxed">Sin negociación directa con fábrica pagás precio de intermediario. Márgenes que podrían ser del 40% terminan siendo del 12%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICIOS (7) ===================== -->
+<section id="servicios" class="py-24 px-6 bg-[#F8F9FA]">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="text-[11px] font-black tracking-[0.2em] text-[#1C6758] uppercase mb-4">Lo Que Hacemos</div>
+      <h2 class="text-4xl font-black text-[#0F2C59] uppercase tracking-wide">7 Servicios Para Importar Sin Riesgos</h2>
+      <div class="w-14 h-0.5 bg-[#D6AD60] mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- 1. Gestión Aduanera -->
+      <div class="service-card bg-white border-b-2 border-[#D6AD60] p-8 flex flex-col reveal">
+        <div class="w-14 h-14 bg-[#0F2C59] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[#D6AD60] text-3xl">account_balance</span>
+        </div>
+        <h3 class="text-lg font-black text-[#0F2C59] uppercase tracking-wide mb-4">Gestión Aduanera</h3>
+        <p class="text-[#0F2C59]/60 font-light leading-relaxed mb-6 text-sm flex-1">
+          Trámites completos ante AFIP, gestión de DJVE y clasificación arancelaria precisa. Evitamos contingencias legales y reducimos tiempos de despacho con documentación perfecta desde el origen chino.
+        </p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-center gap-2 text-sm text-[#0F2C59]/65 font-light"><span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full shrink-0"></span>Posición arancelaria SIM/MALVINA</li>
+          <li class="flex items-center gap-2 text-sm text-[#0F2C59]/65 font-light"><span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full shrink-0"></span>Gestión DJVE, SIC y SIMI</li>
+          <li class="flex items-center gap-2 text-sm text-[#0F2C59]/65 font-light"><span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full shrink-0"></span>Cálculo de tributos y derechos</li>
+        </ul>
+        <a href="#contacto" class="text-[#1C6758] text-sm font-semibold hover:text-[#0F2C59] transition-colors mt-auto">Quiero saber más →</a>
+      </div>
+
+      <!-- 2. Auditoría de Proveedores -->
+      <div class="service-card bg-[#0F2C59] border-b-2 border-[#D6AD60] p-8 flex flex-col reveal" style="transition-delay:0.1s">
+        <div class="w-14 h-14 bg-[#D6AD60] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[#0F2C59] text-3xl">fact_check</span>
+        </div>
+        <h3 class="text-lg font-black text-white uppercase tracking-wide mb-4">Auditoría de Proveedores</h3>
+        <p class="text-white/55 font-light leading-relaxed mb-6 text-sm flex-1">
+          Control presencial en fábricas de Yiwu, Guangzhou y Shenzhen. Verificamos certificaciones, capacidad productiva y condiciones de pago. Eliminamos el riesgo de fraude y mala calidad antes del embarque.
+        </p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-center gap-2 text-sm text-white/55 font-light"><span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full shrink-0"></span>Visita física a fábrica verificada</li>
+          <li class="flex items-center gap-2 text-sm text-white/55 font-light"><span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full shrink-0"></span>Verificación de certificados CE/ISO</li>
+          <li class="flex items-center gap-2 text-sm text-white/55 font-light"><span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full shrink-0"></span>Control de calidad pre-embarque</li>
+        </ul>
+        <a href="#contacto" class="text-[#D6AD60] text-sm font-semibold hover:text-white transition-colors mt-auto">Quiero saber más →</a>
+      </div>
+
+      <!-- 3. Logística Integral -->
+      <div class="service-card bg-white border-b-2 border-[#D6AD60] p-8 flex flex-col reveal" style="transition-delay:0.2s">
+        <div class="w-14 h-14 bg-[#1C6758] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-white text-3xl">inventory_2</span>
+        </div>
+        <h3 class="text-lg font-black text-[#0F2C59] uppercase tracking-wide mb-4">Logística Integral</h3>
+        <p class="text-[#0F2C59]/60 font-light leading-relaxed mb-6 text-sm flex-1">
+          Coordinación de fletes marítimos FCL/LCL y aéreos desde los principales puertos chinos hasta Argentina. Trazabilidad completa con seguimiento en tiempo real y coordinación con depósitos fiscales.
+        </p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-center gap-2 text-sm text-[#0F2C59]/65 font-light"><span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full shrink-0"></span>Flete marítimo FCL y LCL</li>
+          <li class="flex items-center gap-2 text-sm text-[#0F2C59]/65 font-light"><span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full shrink-0"></span>Seguro de carga internacional</li>
+          <li class="flex items-center gap-2 text-sm text-[#0F2C59]/65 font-light"><span class="w-1.5 h-1.5 bg-[#D6AD60] rounded-full shrink-0"></span>Entrega puerta a puerta en Argentina</li>
+        </ul>
+        <a href="#contacto" class="text-[#1C6758] text-sm font-semibold hover:text-[#0F2C59] transition-colors mt-auto">Quiero saber más →</a>
+      </div>
+
+      <!-- 4. Consultoría de Importación (NUEVO) -->
+      <div class="service-card bg-white border-b-2 border-[#D6AD60] p-8 flex flex-col reveal" style="transition-delay:0.1s">
+        <div class="w-14 h-14 bg-[#0F2C59]/08 border border-[#0F2C59]/15 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[#0F2C59] text-3xl">insights</span>
+        </div>
+        <h3 class="text-lg font-black text-[#0F2C59] uppercase tracking-wide mb-4">Consultoría de Importación</h3>
+        <p class="text-[#0F2C59]/60 font-light leading-relaxed mb-6 text-sm flex-1">
+          Análisis de viabilidad antes de invertir. ¿Cuánto cuesta traerlo? ¿Cuánto lo venderás? ¿Qué regulaciones aplican? Te damos claridad antes de comprometerte.
+        </p>
+        <a href="#contacto" class="text-[#1C6758] text-sm font-semibold hover:text-[#0F2C59] transition-colors mt-auto">Quiero saber más →</a>
+      </div>
+
+      <!-- 5. Viajes a China (NUEVO) -->
+      <div class="service-card bg-white border-b-2 border-[#D6AD60] p-8 flex flex-col reveal" style="transition-delay:0.2s">
+        <div class="w-14 h-14 bg-[#1C6758] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-white text-3xl">flight</span>
+        </div>
+        <h3 class="text-lg font-black text-[#0F2C59] uppercase tracking-wide mb-4">Viajes a China</h3>
+        <p class="text-[#0F2C59]/60 font-light leading-relaxed mb-6 text-sm flex-1">
+          Te llevamos a conocer fábricas en persona. Traductor incluido. Negocias directo con proveedores. Validás calidad con tus propios ojos.
+        </p>
+        <a href="#contacto" class="text-[#1C6758] text-sm font-semibold hover:text-[#0F2C59] transition-colors mt-auto">Quiero saber más →</a>
+      </div>
+
+      <!-- 6. Creación de Marca (NUEVO) -->
+      <div class="service-card bg-white border-b-2 border-[#D6AD60] p-8 flex flex-col reveal" style="transition-delay:0.3s">
+        <div class="w-14 h-14 bg-[#D6AD60] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[#0F2C59] text-3xl">sell</span>
+        </div>
+        <h3 class="text-lg font-black text-[#0F2C59] uppercase tracking-wide mb-4">Creación de Marca</h3>
+        <p class="text-[#0F2C59]/60 font-light leading-relaxed mb-6 text-sm flex-1">
+          Tu logo, tu etiqueta, tu exclusividad. No importes un producto genérico de 100 vendedores. Crea marca propia con nosotros.
+        </p>
+        <a href="#contacto" class="text-[#1C6758] text-sm font-semibold hover:text-[#0F2C59] transition-colors mt-auto">Quiero saber más →</a>
+      </div>
+
+      <!-- 7. Fotografía Pre-Entrega (NUEVO) — centrado en desktop -->
+      <div class="service-card bg-white border-b-2 border-[#D6AD60] p-8 flex flex-col reveal lg:col-start-2" style="transition-delay:0.1s">
+        <div class="w-14 h-14 bg-[#0F2C59] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[#D6AD60] text-3xl">photo_camera</span>
+        </div>
+        <h3 class="text-lg font-black text-[#0F2C59] uppercase tracking-wide mb-4">Fotografía Pre-Entrega</h3>
+        <p class="text-[#0F2C59]/60 font-light leading-relaxed mb-6 text-sm flex-1">
+          Fotos profesionales desde China. Empieza a vender antes de recibir stock. Contenido listo para e-commerce, redes y marketplace.
+        </p>
+        <a href="#contacto" class="text-[#1C6758] text-sm font-semibold hover:text-[#0F2C59] transition-colors mt-auto">Quiero saber más →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ¿POR QUÉ ALBABEL? ===================== -->
+<section id="diferencial" class="py-24 px-6 bg-[#F8F9FA]">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="text-[11px] font-black tracking-[0.2em] text-[#1C6758] uppercase mb-4">Ventaja Competitiva</div>
+      <h2 class="text-4xl font-black text-[#0F2C59] uppercase tracking-wide">Por Qué 500+ Empresas Eligen Albabel</h2>
+      <div class="w-14 h-0.5 bg-[#D6AD60] mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="diferencial-card bg-white rounded-lg p-8 shadow-sm reveal-scale">
+        <div class="w-12 h-12 bg-[#1C6758]/10 flex items-center justify-center mb-5 rounded-lg">
+          <span class="material-symbols-outlined text-[#1C6758] text-2xl" style="font-variation-settings:'FILL' 1">workspace_premium</span>
+        </div>
+        <h3 class="text-lg font-black text-[#0F2C59] mb-3 leading-snug">20+ Años de Experiencia</h3>
+        <p class="text-sm text-[#0F2C59]/60 font-light leading-relaxed">No es la primera importación. Conocemos ARCA, aduanas, regulaciones actuales. Sabemos qué funciona y qué falló.</p>
+      </div>
+      <div class="diferencial-card bg-white rounded-lg p-8 shadow-sm reveal-scale" style="transition-delay:0.1s">
+        <div class="w-12 h-12 bg-[#1C6758]/10 flex items-center justify-center mb-5 rounded-lg">
+          <span class="material-symbols-outlined text-[#1C6758] text-2xl" style="font-variation-settings:'FILL' 1">public</span>
+        </div>
+        <h3 class="text-lg font-black text-[#0F2C59] mb-3 leading-snug">Presencia en 3 Países</h3>
+        <p class="text-sm text-[#0F2C59]/60 font-light leading-relaxed">Oficinas en Argentina, Paraguay y China. Acompañamiento 24/7. Cuando China trabaja, nosotros también estamos disponibles.</p>
+      </div>
+      <div class="diferencial-card bg-white rounded-lg p-8 shadow-sm reveal-scale" style="transition-delay:0.2s">
+        <div class="w-12 h-12 bg-[#1C6758]/10 flex items-center justify-center mb-5 rounded-lg">
+          <span class="material-symbols-outlined text-[#1C6758] text-2xl" style="font-variation-settings:'FILL' 1">handshake</span>
+        </div>
+        <h3 class="text-lg font-black text-[#0F2C59] mb-3 leading-snug">Alianza Yiwu Sunray</h3>
+        <p class="text-sm text-[#0F2C59]/60 font-light leading-relaxed">No somos intermediarios ciegos. Equipo directo en China verificando calidad, auditando proveedores, validando cada paso.</p>
+      </div>
+      <div class="diferencial-card bg-white rounded-lg p-8 shadow-sm reveal-scale" style="transition-delay:0.3s">
+        <div class="w-12 h-12 bg-[#1C6758]/10 flex items-center justify-center mb-5 rounded-lg">
+          <span class="material-symbols-outlined text-[#1C6758] text-2xl" style="font-variation-settings:'FILL' 1">trending_up</span>
+        </div>
+        <h3 class="text-lg font-black text-[#0F2C59] mb-3 leading-snug">+500 Importaciones Exitosas</h3>
+        <p class="text-sm text-[#0F2C59]/60 font-light leading-relaxed">De emprendedor individual a distribuidor con 5+ proveedores. Cada operación documentada. Cada resultado medible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VIDEO #1: Presentación ===================== -->
+<section id="video-presentacion" class="py-24 px-6 bg-white">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+
+      <!-- Video (60%) -->
+      <div class="lg:col-span-3 reveal-left">
+        <div class="video-16-9">
+          <!-- Placeholder — reemplazar URL la próxima semana con video real -->
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+            title="Presentación de Albabel"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <p class="text-center text-xs text-[#0F2C59]/40 font-light mt-3">Conoce a Albabel en 5 minutos</p>
+      </div>
+
+      <!-- Texto (40%) -->
+      <div class="lg:col-span-2 reveal-right" style="transition-delay:0.1s">
+        <div class="text-[11px] font-black tracking-[0.2em] text-[#1C6758] uppercase mb-4">Quiénes Somos</div>
+        <h2 class="text-3xl font-black text-[#0F2C59] uppercase tracking-wide leading-tight mb-5 border-l-gold pl-5">
+          Tu Puente Comercial<br>entre China y Argentina
+        </h2>
+        <p class="text-[#0F2C59]/65 font-light leading-relaxed mb-8 text-[15px]">
+          Descubrí cómo 20+ años de experiencia y presencia real en China pueden transformar tu negocio de importación. Sin riesgos, sin sorpresas, con total transparencia.
+        </p>
+        <a href="#contacto"
+           class="btn-shimmer inline-block bg-[#1C6758] text-white px-8 py-3.5 font-black text-[11px] tracking-[0.15em] uppercase hover:bg-[#1C6758]/90 transition-all hover:scale-105">
+          Pedir Mi Consulta Gratuita
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CARRUSEL CASOS DE ÉXITO ===================== -->
+<section id="casos" class="py-24 px-6 bg-[#F8F9FA]">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-14 reveal">
+      <div class="text-[11px] font-black tracking-[0.2em] text-[#1C6758] uppercase mb-4">Resultados Reales</div>
+      <h2 class="text-4xl font-black text-[#0F2C59] uppercase tracking-wide">Historias de Éxito</h2>
+      <div class="w-14 h-0.5 bg-[#D6AD60] mx-auto mt-4"></div>
+      <p class="text-[#0F2C59]/55 font-light mt-4 text-[15px]">Casos reales de clientes que confiaron en Albabel</p>
+    </div>
+
+    <!-- Carousel wrapper -->
+    <div class="relative">
+      <div class="carousel-wrapper" id="carousel-wrapper">
+        <div class="carousel-track" id="carousel-track">
+
+          <!-- Caso 1 -->
+          <div class="carousel-card">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+              <div class="video-9-16">
+                <!-- Placeholder vertical — reemplazar semana próxima -->
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                  title="Testimonio Juan Martínez" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="p-5">
+                <div class="font-bold text-[#0F2C59] text-sm">Juan Martínez</div>
+                <div class="text-xs text-[#1C6758] font-semibold mb-2">Electrónica &amp; Gadgets</div>
+                <p class="text-xs text-[#0F2C59]/60 font-light leading-relaxed italic">"Pasé de importar local caro a comprar directo en China. Mi margen subió 35%."</p>
+                <div class="mt-2 text-yellow-400 text-sm">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Caso 2 -->
+          <div class="carousel-card">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+              <div class="video-9-16">
+                <iframe src="https://www.youtube-nocookie.com/embed/jNQXAC9IVRw"
+                  title="Testimonio María González" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="p-5">
+                <div class="font-bold text-[#0F2C59] text-sm">María González</div>
+                <div class="text-xs text-[#1C6758] font-semibold mb-2">Ropa y Accesorios</div>
+                <p class="text-xs text-[#0F2C59]/60 font-light leading-relaxed italic">"Tenía miedo de estafas. Albabel auditó todo. Llegó perfecto, y repito."</p>
+                <div class="mt-2 text-yellow-400 text-sm">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Caso 3 -->
+          <div class="carousel-card">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+              <div class="video-9-16">
+                <iframe src="https://www.youtube-nocookie.com/embed/9bZkp7q19f0"
+                  title="Testimonio Carlos López" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="p-5">
+                <div class="font-bold text-[#0F2C59] text-sm">Carlos López</div>
+                <div class="text-xs text-[#1C6758] font-semibold mb-2">Hogar y Decoración</div>
+                <p class="text-xs text-[#0F2C59]/60 font-light leading-relaxed italic">"Mi distribuidor entero es chino ahora. Márgenes nunca antes vistos."</p>
+                <div class="mt-2 text-yellow-400 text-sm">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Casos 4–10 (template — completar con datos reales) -->
+          <div class="carousel-card">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+              <div class="video-9-16 bg-[#F8F9FA] flex items-center justify-center">
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                  title="Testimonio cliente 4" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="p-5">
+                <div class="font-bold text-[#0F2C59] text-sm">[Nombre Cliente]</div>
+                <div class="text-xs text-[#1C6758] font-semibold mb-2">[Rubro / Empresa]</div>
+                <p class="text-xs text-[#0F2C59]/60 font-light leading-relaxed italic">"[Testimonio breve del cliente — reemplazar]"</p>
+                <div class="mt-2 text-yellow-400 text-sm">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+              <div class="video-9-16">
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                  title="Testimonio cliente 5" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="p-5">
+                <div class="font-bold text-[#0F2C59] text-sm">[Nombre Cliente]</div>
+                <div class="text-xs text-[#1C6758] font-semibold mb-2">[Rubro / Empresa]</div>
+                <p class="text-xs text-[#0F2C59]/60 font-light leading-relaxed italic">"[Testimonio breve del cliente — reemplazar]"</p>
+                <div class="mt-2 text-yellow-400 text-sm">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+              <div class="video-9-16">
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                  title="Testimonio cliente 6" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="p-5">
+                <div class="font-bold text-[#0F2C59] text-sm">[Nombre Cliente]</div>
+                <div class="text-xs text-[#1C6758] font-semibold mb-2">[Rubro / Empresa]</div>
+                <p class="text-xs text-[#0F2C59]/60 font-light leading-relaxed italic">"[Testimonio breve del cliente — reemplazar]"</p>
+                <div class="mt-2 text-yellow-400 text-sm">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+              <div class="video-9-16">
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                  title="Testimonio cliente 7" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="p-5">
+                <div class="font-bold text-[#0F2C59] text-sm">[Nombre Cliente]</div>
+                <div class="text-xs text-[#1C6758] font-semibold mb-2">[Rubro / Empresa]</div>
+                <p class="text-xs text-[#0F2C59]/60 font-light leading-relaxed italic">"[Testimonio breve del cliente — reemplazar]"</p>
+                <div class="mt-2 text-yellow-400 text-sm">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+              <div class="video-9-16">
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                  title="Testimonio cliente 8" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="p-5">
+                <div class="font-bold text-[#0F2C59] text-sm">[Nombre Cliente]</div>
+                <div class="text-xs text-[#1C6758] font-semibold mb-2">[Rubro / Empresa]</div>
+                <p class="text-xs text-[#0F2C59]/60 font-light leading-relaxed italic">"[Testimonio breve del cliente — reemplazar]"</p>
+                <div class="mt-2 text-yellow-400 text-sm">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+              <div class="video-9-16">
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                  title="Testimonio cliente 9" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="p-5">
+                <div class="font-bold text-[#0F2C59] text-sm">[Nombre Cliente]</div>
+                <div class="text-xs text-[#1C6758] font-semibold mb-2">[Rubro / Empresa]</div>
+                <p class="text-xs text-[#0F2C59]/60 font-light leading-relaxed italic">"[Testimonio breve del cliente — reemplazar]"</p>
+                <div class="mt-2 text-yellow-400 text-sm">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card">
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+              <div class="video-9-16">
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                  title="Testimonio cliente 10" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="p-5">
+                <div class="font-bold text-[#0F2C59] text-sm">[Nombre Cliente]</div>
+                <div class="text-xs text-[#1C6758] font-semibold mb-2">[Rubro / Empresa]</div>
+                <p class="text-xs text-[#0F2C59]/60 font-light leading-relaxed italic">"[Testimonio breve del cliente — reemplazar]"</p>
+                <div class="mt-2 text-yellow-400 text-sm">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /carousel-track -->
+      </div><!-- /carousel-wrapper -->
+
+      <!-- Prev / Next arrows -->
+      <button id="carousel-prev"
+        class="absolute left-0 top-1/3 -translate-y-1/2 -translate-x-4 w-11 h-11 rounded-full bg-[#1C6758] text-white flex items-center justify-center shadow-lg hover:bg-[#0F2C59] transition-colors z-10 focus-visible:outline-2 focus-visible:outline-[#D6AD60]"
+        aria-label="Anterior">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <button id="carousel-next"
+        class="absolute right-0 top-1/3 -translate-y-1/2 translate-x-4 w-11 h-11 rounded-full bg-[#1C6758] text-white flex items-center justify-center shadow-lg hover:bg-[#0F2C59] transition-colors z-10 focus-visible:outline-2 focus-visible:outline-[#D6AD60]"
+        aria-label="Siguiente">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+
+    <!-- Dots -->
+    <div class="flex justify-center gap-2 mt-8" id="carousel-dots" aria-label="Indicadores de diapositiva">
+      <span class="carousel-dot active" data-index="0"></span>
+      <span class="carousel-dot" data-index="1"></span>
+      <span class="carousel-dot" data-index="2"></span>
+      <span class="carousel-dot" data-index="3"></span>
+      <span class="carousel-dot" data-index="4"></span>
+      <span class="carousel-dot" data-index="5"></span>
+      <span class="carousel-dot" data-index="6"></span>
+      <span class="carousel-dot" data-index="7"></span>
+      <span class="carousel-dot" data-index="8"></span>
+      <span class="carousel-dot" data-index="9"></span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== VIDEO #2: Servicios ===================== -->
+<section id="video-servicios" class="py-24 px-6 bg-white">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+
+      <!-- Texto (40%) -->
+      <div class="lg:col-span-2 reveal-left order-1 lg:order-1">
+        <div class="text-[11px] font-black tracking-[0.2em] text-[#1C6758] uppercase mb-4">7 Servicios Integrales</div>
+        <h2 class="text-3xl font-black text-[#0F2C59] uppercase tracking-wide leading-tight mb-5 border-l-gold pl-5">
+          Todo lo que Necesitás para Importar con Éxito
+        </h2>
+        <p class="text-[#0F2C59]/65 font-light leading-relaxed mb-8 text-[15px]">
+          Desde auditoría de proveedores hasta logística puerta a puerta. Mirá en detalle cada servicio y cómo podemos ayudarte a crecer.
+        </p>
+        <a href="#servicios"
+           class="inline-block bg-[#0F2C59] text-white px-8 py-3.5 font-black text-[11px] tracking-[0.15em] uppercase hover:bg-[#1C6758] transition-all hover:scale-105">
+          Descubrí los 7 Servicios
+        </a>
+      </div>
+
+      <!-- Video (60%) -->
+      <div class="lg:col-span-3 reveal-right order-2 lg:order-2" style="transition-delay:0.1s">
+        <div class="video-16-9">
+          <!-- Placeholder — reemplazar semana próxima -->
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/jNQXAC9IVRw"
+            title="Los 7 servicios de Albabel"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <p class="text-center text-xs text-[#0F2C59]/40 font-light mt-3">Tutorial: Los 7 Servicios de Albabel</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUIÉNES SOMOS ===================== -->
+<section id="nosotros" class="py-24 px-6 bg-white">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <div class="reveal-left">
+        <div class="text-[11px] font-black tracking-[0.2em] text-[#1C6758] uppercase mb-4">Quiénes Somos</div>
+        <h2 class="text-4xl font-black text-[#0F2C59] uppercase tracking-wide border-l-gold pl-5 mb-6 leading-tight">
+          Más Que Un<br>Despachante.
+        </h2>
+
+        <p class="text-[#0F2C59]/70 leading-relaxed mb-4 font-light text-[15px]">
+          Albabel nace de Babilonia, Irak. Los creadores tienen raíces en el Medio Oriente y viven en Argentina hace más de 30 años.
+        </p>
+        <p class="text-[#0F2C59]/70 leading-relaxed mb-4 font-light text-[15px]">
+          Durante 10 años operamos como Albabil importando productos. Luego creamos <strong class="font-semibold text-[#0F2C59]">ALBABEL</strong> con una misión: no solo importar, sino acompañar y asesorar a emprendedores, pymes y distribuidoras en todo el proceso de importación desde China.
+        </p>
+        <p class="text-[#0F2C59]/70 leading-relaxed mb-8 font-light text-[15px]">
+          Hoy: Alianza con Yiwu Sunray. Equipo en Argentina, Paraguay y China. <strong class="font-semibold text-[#0F2C59]">20+ años de experiencia combinada.</strong> Presencia real, no intermediarios ciegos.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <div class="bg-[#F8F9FA] border border-[#D6AD60]/40 px-4 py-3 flex-1 min-w-[140px]">
+            <div class="text-[9px] font-black text-[#0F2C59]/40 tracking-widest uppercase">CUIT</div>
+            <div class="text-sm font-bold text-[#0F2C59] mt-0.5">30-71536298-4</div>
+          </div>
+          <div class="bg-[#F8F9FA] border border-[#D6AD60]/40 px-4 py-3 flex-1 min-w-[140px]">
+            <div class="text-[9px] font-black text-[#0F2C59]/40 tracking-widest uppercase">Sede Argentina</div>
+            <div class="text-sm font-bold text-[#0F2C59] mt-0.5">Buenos Aires, CABA</div>
+          </div>
+          <div class="bg-[#F8F9FA] border border-[#D6AD60]/40 px-4 py-3 flex-1 min-w-[140px]">
+            <div class="text-[9px] font-black text-[#0F2C59]/40 tracking-widest uppercase">Operaciones China</div>
+            <div class="text-sm font-bold text-[#0F2C59] mt-0.5">Yiwu, Zhejiang</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal-right grid grid-cols-2 gap-4">
+        <div class="bg-[#0F2C59] p-7 flex flex-col justify-between min-h-[190px]">
+          <span class="material-symbols-outlined text-[#D6AD60] text-4xl" style="font-variation-settings:'FILL' 1">verified</span>
+          <div>
+            <div class="text-3xl font-black text-white">100%</div>
+            <div class="text-[10px] font-black text-white/40 tracking-widest uppercase mt-1">Transparencia</div>
+          </div>
+        </div>
+        <div class="bg-[#D6AD60] p-7 flex flex-col justify-between min-h-[190px]">
+          <span class="material-symbols-outlined text-[#0F2C59] text-4xl" style="font-variation-settings:'FILL' 1">public</span>
+          <div>
+            <div class="text-3xl font-black text-[#0F2C59]">3 Países</div>
+            <div class="text-[10px] font-black text-[#0F2C59]/60 tracking-widest uppercase mt-1">Presencia Real</div>
+          </div>
+        </div>
+        <div class="bg-[#1C6758] p-7 flex flex-col justify-between min-h-[190px] col-span-2">
+          <span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings:'FILL' 1">handshake</span>
+          <div>
+            <div class="text-lg font-black text-white leading-snug">Socios Comerciales,<br>No Intermediarios</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESO (5 pasos) ===================== -->
+<section id="proceso" class="py-24 px-6 bg-[#0F2C59]">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="text-[11px] font-black tracking-[0.2em] text-[#D6AD60] uppercase mb-4">Cómo Trabajamos</div>
+      <h2 class="text-4xl font-black text-white uppercase tracking-wide">Proceso Transparente</h2>
+      <div class="w-14 h-0.5 bg-[#D6AD60] mx-auto mt-4"></div>
+      <p class="text-white/45 font-light mt-4 max-w-lg mx-auto text-[15px]">
+        Control total sobre tu cadena de suministro, desde la consulta inicial hasta la entrega en tu depósito.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 relative">
+      <!-- Connector line (desktop only) -->
+      <div class="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px bg-gradient-to-r from-[#D6AD60]/50 via-[#D6AD60]/20 to-transparent z-0"></div>
+
+      <div class="flex flex-col items-center text-center p-4 reveal z-10">
+        <div class="w-20 h-20 rounded-full bg-[#D6AD60] border-4 border-[#0A1E3D] flex items-center justify-center text-[#0F2C59] font-black text-2xl mb-5">01</div>
+        <h4 class="text-sm font-black text-white uppercase tracking-wide mb-1">Consulta Inicial</h4>
+        <p class="text-[#D6AD60] text-[11px] font-semibold mb-2">Gratis · 30 min</p>
+        <p class="text-white/45 font-light text-sm leading-relaxed">Entendemos tu idea, validamos viabilidad regulatoria y económica antes de comprometer capital.</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center p-4 reveal z-10" style="transition-delay:0.1s">
+        <div class="w-20 h-20 rounded-full bg-[#D6AD60] border-4 border-[#0A1E3D] flex items-center justify-center text-[#0F2C59] font-black text-2xl mb-5">02</div>
+        <h4 class="text-sm font-black text-white uppercase tracking-wide mb-1">Auditoría de Proveedor</h4>
+        <p class="text-[#D6AD60] text-[11px] font-semibold mb-2">7–10 días</p>
+        <p class="text-white/45 font-light text-sm leading-relaxed">Investigamos y validamos proveedores en China in situ. Visita física, certificados, condiciones.</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center p-4 reveal z-10" style="transition-delay:0.2s">
+        <div class="w-20 h-20 rounded-full bg-[#D6AD60] border-4 border-[#0A1E3D] flex items-center justify-center text-[#0F2C59] font-black text-2xl mb-5">03</div>
+        <h4 class="text-sm font-black text-white uppercase tracking-wide mb-1">Negociación</h4>
+        <p class="text-[#D6AD60] text-[11px] font-semibold mb-2">3–20 días</p>
+        <p class="text-white/45 font-light text-sm leading-relaxed">Acompañamos negociación de términos, precio, condiciones de pago y plazos de entrega.</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center p-4 reveal z-10" style="transition-delay:0.3s">
+        <div class="w-20 h-20 rounded-full bg-[#D6AD60] border-4 border-[#0A1E3D] flex items-center justify-center text-[#0F2C59] font-black text-2xl mb-5">04</div>
+        <h4 class="text-sm font-black text-white uppercase tracking-wide mb-1">Producción y Seguimiento</h4>
+        <p class="text-[#D6AD60] text-[11px] font-semibold mb-2">30–90 días</p>
+        <p class="text-white/45 font-light text-sm leading-relaxed">Monitoreamos producción, validamos calidad, control pre-embarque.</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center p-4 reveal z-10" style="transition-delay:0.4s">
+        <div class="w-20 h-20 rounded-full bg-[#1C6758] border-4 border-[#0A1E3D] flex items-center justify-center text-white font-black text-2xl mb-5">05</div>
+        <h4 class="text-sm font-black text-white uppercase tracking-wide mb-1">Logística y Despacho</h4>
+        <p class="text-[#D6AD60] text-[11px] font-semibold mb-2">7–90 días</p>
+        <p class="text-white/45 font-light text-sm leading-relaxed">Transportamos China → Argentina, desaduanamiento, liquidación de tributos y entrega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ALIANZAS / YIWU ===================== -->
+<section id="alianzas" class="py-24 px-6 bg-white">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="text-[11px] font-black tracking-[0.2em] text-[#1C6758] uppercase mb-4">Alianza Estratégica</div>
+      <h2 class="text-4xl font-black text-[#0F2C59] uppercase tracking-wide">Presencia en China</h2>
+      <div class="w-14 h-0.5 bg-[#D6AD60] mx-auto mt-4"></div>
+    </div>
+
+    <div class="border border-[#D6AD60]/30 p-8 md:p-12 reveal">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-1.5 h-14 bg-[#D6AD60] shrink-0"></div>
+            <div>
+              <div class="text-[10px] font-black tracking-widest text-[#0F2C59]/45 uppercase">Socio Operativo en China</div>
+              <h3 class="text-2xl font-black text-[#0F2C59] leading-tight">Yiwu Sunray<br>Trading Co., Ltd.</h3>
+            </div>
+          </div>
+          <p class="text-[#0F2C59]/60 font-light leading-relaxed mb-6 text-[15px]">
+            Nuestra alianza con Yiwu Sunray nos permite contar con representación física permanente en el hub comercial más importante del mundo. Ubicados en el Chouzhou North Road, Yiwu City, Zhejiang — son nuestros ojos y manos sobre el terreno para cada operación de importación.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3 text-sm text-[#0F2C59]/60 font-light">
+              <span class="material-symbols-outlined text-[#D6AD60] text-lg shrink-0 mt-0.5">location_on</span>
+              Flat 301, 3rd Floor, No.265 ChouZhou North Road, Yiwu City, Zhejiang, China
+            </div>
+            <div class="flex items-center gap-3 text-sm text-[#0F2C59]/60 font-light">
+              <span class="material-symbols-outlined text-[#D6AD60] text-lg shrink-0">phone</span>
+              +86 152 6794 6998 / +86 158 5791 7023
+            </div>
+            <div class="flex items-center gap-3 text-sm text-[#0F2C59]/60 font-light">
+              <span class="material-symbols-outlined text-[#D6AD60] text-lg shrink-0">mail</span>
+              info@sunray-enterprises.com
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-[#F8F9FA] border border-[#D6AD60]/20 p-5 text-center hover:border-[#D6AD60]/60 transition-colors">
+            <span class="material-symbols-outlined text-[#D6AD60] text-3xl mb-3 block" style="font-variation-settings:'FILL' 1">factory</span>
+            <div class="font-bold text-[#0F2C59] text-sm leading-snug">Auditoría<br>de Fábricas</div>
+          </div>
+          <div class="bg-[#F8F9FA] border border-[#D6AD60]/20 p-5 text-center hover:border-[#D6AD60]/60 transition-colors">
+            <span class="material-symbols-outlined text-[#D6AD60] text-3xl mb-3 block" style="font-variation-settings:'FILL' 1">payments</span>
+            <div class="font-bold text-[#0F2C59] text-sm leading-snug">Gestión de<br>Pagos en China</div>
+          </div>
+          <div class="bg-[#F8F9FA] border border-[#D6AD60]/20 p-5 text-center hover:border-[#D6AD60]/60 transition-colors">
+            <span class="material-symbols-outlined text-[#D6AD60] text-3xl mb-3 block" style="font-variation-settings:'FILL' 1">inventory</span>
+            <div class="font-bold text-[#0F2C59] text-sm leading-snug">Control de<br>Calidad</div>
+          </div>
+          <div class="bg-[#F8F9FA] border border-[#D6AD60]/20 p-5 text-center hover:border-[#D6AD60]/60 transition-colors">
+            <span class="material-symbols-outlined text-[#D6AD60] text-3xl mb-3 block" style="font-variation-settings:'FILL' 1">translate</span>
+            <div class="font-bold text-[#0F2C59] text-sm leading-snug">Soporte<br>Bilingüe Chino-Español</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VIDEO #3: CTA Final ===================== -->
+<section id="video-cta" class="py-24 px-6" style="background: linear-gradient(135deg, #0F2C59 0%, #1C6758 100%);">
+  <div class="max-w-[1200px] mx-auto text-center">
+
+    <div class="reveal">
+      <div class="text-[11px] font-black tracking-[0.2em] text-[#D6AD60] uppercase mb-6">¿Listo para Importar?</div>
+      <h2 class="text-3xl md:text-4xl font-black text-white uppercase tracking-wide mb-4 leading-tight">
+        2 Minutos para Cambiar Tu Negocio
+      </h2>
+      <p class="text-white/70 font-light max-w-xl mx-auto mb-10 text-[15px] leading-relaxed">
+        Conocé por qué más de 500 importaciones confiaron en nosotros. Tu turno empieza ahora.
+      </p>
+    </div>
+
+    <!-- Video centered (70% desktop, 90% mobile) -->
+    <div class="reveal w-[90%] md:w-[70%] mx-auto mb-10" style="transition-delay:0.15s">
+      <div class="video-16-9" style="border-radius: 12px;">
+        <!-- Placeholder — reemplazar semana próxima -->
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/9bZkp7q19f0"
+          title="¿Listo para importar con Albabel?"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:0.25s">
+      <a href="#contacto"
+         class="inline-block bg-[#D6AD60] text-[#0F2C59] px-12 py-4 font-black text-[12px] tracking-[0.2em] uppercase hover:bg-white transition-all hover:scale-105 shadow-2xl">
+        Empezar Ahora — Es Gratis
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="py-24 px-6 bg-[#F8F9FA]">
+  <div class="max-w-[800px] mx-auto">
+    <div class="text-center mb-14 reveal">
+      <div class="text-[11px] font-black tracking-[0.2em] text-[#1C6758] uppercase mb-4">Preguntas Frecuentes</div>
+      <h2 class="text-4xl font-black text-[#0F2C59] uppercase tracking-wide">Todo lo que<br>Necesitás Saber</h2>
+      <div class="w-14 h-0.5 bg-[#D6AD60] mx-auto mt-4"></div>
+    </div>
+
+    <div class="space-y-3 reveal">
+
+      <!-- P1 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Cuál es el costo mínimo para importar con Albabel?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">No hay mínimo. Desde 1 unidad en adelante. Lo importante es que sea viable económicamente. Hacemos análisis previo para validar rentabilidad antes de comprometerte.</div>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Cuánto tiempo tarda todo el proceso?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">Depende del servicio. Consultoría inicial: 30 minutos (gratis). Auditoría de proveedor: 7–10 días. Producción: 30–90 días. Logística: 7–90 días según opción (marítimo vs. aéreo).</div>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Qué pasa si el proveedor me defrauda?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">Hacemos auditoría previa verificando en China. Si hay problema en producción, validamos directamente in situ. Además, aconsejamos pagos escalonados — nunca adelanto total. Nuestro equipo en Yiwu es tu seguro en terreno.</div>
+        </div>
+      </div>
+
+      <!-- P4 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Albabel cobra por consulta?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">Consulta inicial (primera reunión): <strong class="text-[#1C6758] font-bold">GRATIS</strong>. Auditoría de Proveedor: inversión según complejidad. Otros servicios: se negocia por caso. Siempre con presupuesto previo y sin sorpresas.</div>
+        </div>
+      </div>
+
+      <!-- P5 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Puedo viajar a China con Albabel?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">Sí. Organizamos todo: vuelos, hotel, itinerario de fábricas, traductor incluido. Negocias directo con el proveedor con la confianza de tener nuestro equipo al lado.</div>
+        </div>
+      </div>
+
+      <!-- P6 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Qué pasa si el producto no se vende?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">Nuestra consultoría busca evitar eso validando el mercado antes de la compra. Pero si pasa, el riesgo comercial es tuyo — es tu inversión. Por eso la auditoría y consultoría previas son clave: evitamos que llegues a ese punto.</div>
+        </div>
+      </div>
+
+      <!-- P7 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Dónde están ubicados?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">Sede principal en Buenos Aires, CABA. Equipo operativo en Yiwu, China (alianza Yiwu Sunray). También presencia en Paraguay. Acompañamiento 24/7 en ambos husos horarios GMT-3 y GMT+8.</div>
+        </div>
+      </div>
+
+      <!-- P8 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Hacen importaciones pequeñas o solo volumen grande?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">Ambas. Trabajamos con emprendedores desde un contenedor y con distribuidores con 5+ proveedores activos. No hay límite mínimo — solo que la operación sea económicamente viable para vos.</div>
+        </div>
+      </div>
+
+      <!-- P9 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Cómo pago a un proveedor chino? ¿Puedo girar dólares desde Argentina?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">Sí, y este es uno de los puntos más delicados. Las opciones más usadas son transferencia bancaria internacional (TT/Wire), pago vía cuenta en el exterior o a través de nuestra alianza con Yiwu Sunray directamente desde China. Siempre estructuramos pagos escalonados — nunca el 100% adelantado. En tu consulta gratuita te asesoramos según tu situación y monto.</div>
+        </div>
+      </div>
+
+      <!-- P10 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Necesito ser empresa (SRL, SA) para importar, o puedo hacerlo como persona?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">Podés importar como persona física (monotributo o responsable inscripto) pero hay límites de valor y algunas categorías requieren inscripción como importador en ARCA. En tu consulta evaluamos cuál es la figura más conveniente — algunos clientes arrancan como persona y formalizan cuando el volumen crece.</div>
+        </div>
+      </div>
+
+      <!-- P11 -->
+      <div class="faq-item bg-white rounded-lg overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-[#F8F9FA] transition-colors" aria-expanded="false">
+          <span class="font-bold text-[#0F2C59] text-sm leading-snug">¿Hay productos que no se pueden importar desde China?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer px-7 text-sm text-[#0F2C59]/65 font-light leading-relaxed">
+          <div class="pb-5">Argentina tiene posiciones arancelarias con distintos niveles de restricción: libre importación, licencias automáticas (LA) y licencias no automáticas (LNA). Rubros como juguetes, electrónica y textil tienen controles adicionales. Antes de comprometerte con cualquier proveedor, hacemos el análisis de posición arancelaria — es parte de la consulta inicial gratuita.</div>
+        </div>
+      </div>
+
+    </div><!-- /faq items -->
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section id="contacto" class="py-24 px-6 bg-[#0F2C59]">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="text-[11px] font-black tracking-[0.2em] text-[#D6AD60] uppercase mb-4">Tu Próximo Paso</div>
+      <h2 class="text-4xl font-black text-white uppercase tracking-wide">Primera Consulta Gratis.<br>Sin Compromiso.</h2>
+      <div class="w-14 h-0.5 bg-[#D6AD60] mx-auto mt-4"></div>
+      <p class="text-white/45 font-light mt-4 text-[15px]">Contanos qué querés importar y te decimos si es viable,<br class="hidden sm:block"> cuánto costaría y cómo hacerlo. En 24 horas hábiles tenés respuesta.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+      <div class="lg:col-span-2 space-y-5 reveal">
+        <div class="bg-[#0A1E3D] border border-[#D6AD60]/20 p-6">
+          <h3 class="text-[10px] font-black tracking-widest text-[#D6AD60] uppercase mb-4">Oficina Argentina</h3>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3 text-sm text-white/55 font-light">
+              <span class="material-symbols-outlined text-[#D6AD60] text-lg shrink-0 mt-0.5">location_on</span>
+              Valentín Gómez 2615, Piso 4<br>CP 1046 — Buenos Aires, CABA
+            </div>
+            <div class="flex items-center gap-3 text-sm text-white/55 font-light">
+              <span class="material-symbols-outlined text-[#D6AD60] text-lg shrink-0">phone</span>
+              <a href="tel:+5491135635778" class="hover:text-white transition-colors">+54 9 11 3563-5778</a>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-white/55 font-light">
+              <span class="material-symbols-outlined text-[#D6AD60] text-lg shrink-0">phone</span>
+              <a href="tel:+5491160976727" class="hover:text-white transition-colors">+54 9 11 6097-6727</a>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-white/55 font-light">
+              <span class="material-symbols-outlined text-[#D6AD60] text-lg shrink-0">mail</span>
+              <a href="mailto:contacto@albabel.com" class="hover:text-white transition-colors">contacto@albabel.com</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/5491135635778?text=Hola%20Albabel%2C%20quisiera%20consultar%20sobre%20una%20importaci%C3%B3n."
+           target="_blank" rel="noopener"
+           class="flex items-center gap-3 bg-[#25D366] text-white p-5 font-bold text-sm hover:bg-[#22c55e] transition-all group">
+          <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Consultar por WhatsApp
+          <span class="material-symbols-outlined ml-auto group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </a>
+
+        <div class="bg-[#0A1E3D] border border-[#D6AD60]/20 p-5 text-center">
+          <div class="text-[9px] font-black tracking-widest text-white/25 uppercase mb-1">CUIT Registrado</div>
+          <div class="text-[#D6AD60] font-bold tracking-widest">30-71536298-4</div>
+        </div>
+      </div>
+
+      <form id="contact-form" class="lg:col-span-3 bg-white p-8 reveal" onsubmit="submitForm(event)" novalidate>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label for="f-nombre" class="block text-[10px] font-black tracking-widest text-[#0F2C59] uppercase mb-2">Nombre *</label>
+            <input type="text" id="f-nombre" required name="nombre" autocomplete="name"
+                   class="w-full border border-[#0F2C59]/20 px-4 py-3 text-sm focus:outline-2 focus:outline-[#D6AD60] focus:outline-offset-0 transition-colors"
+                   placeholder="Tu nombre completo" aria-required="true">
+          </div>
+          <div>
+            <label for="f-empresa" class="block text-[10px] font-black tracking-widest text-[#0F2C59] uppercase mb-2">Empresa</label>
+            <input type="text" id="f-empresa" name="empresa" autocomplete="organization"
+                   class="w-full border border-[#0F2C59]/20 px-4 py-3 text-sm focus:outline-2 focus:outline-[#D6AD60] focus:outline-offset-0 transition-colors"
+                   placeholder="Razón social (opcional)">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label for="f-email" class="block text-[10px] font-black tracking-widest text-[#0F2C59] uppercase mb-2">Email *</label>
+            <input type="email" id="f-email" required name="email" autocomplete="email"
+                   class="w-full border border-[#0F2C59]/20 px-4 py-3 text-sm focus:outline-2 focus:outline-[#D6AD60] focus:outline-offset-0 transition-colors"
+                   placeholder="tu@email.com" aria-required="true">
+          </div>
+          <div>
+            <label for="f-telefono" class="block text-[10px] font-black tracking-widest text-[#0F2C59] uppercase mb-2">Teléfono</label>
+            <input type="tel" id="f-telefono" name="telefono" autocomplete="tel"
+                   class="w-full border border-[#0F2C59]/20 px-4 py-3 text-sm focus:outline-2 focus:outline-[#D6AD60] focus:outline-offset-0 transition-colors"
+                   placeholder="+54 9 11 ...">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="f-tipo" class="block text-[10px] font-black tracking-widest text-[#0F2C59] uppercase mb-2">Tipo de Consulta *</label>
+          <select id="f-tipo" required name="tipo"
+                  class="w-full border border-[#0F2C59]/20 px-4 py-3 text-sm focus:outline-2 focus:outline-[#D6AD60] focus:outline-offset-0 transition-colors bg-white"
+                  aria-required="true">
+            <option value="">Seleccionar…</option>
+            <option>Gestión Aduanera</option>
+            <option>Auditoría de Proveedores en China</option>
+            <option>Logística y Flete Internacional</option>
+            <option>Consultoría de Importación</option>
+            <option>Viajes a China</option>
+            <option>Creación de Marca</option>
+            <option>Fotografía Pre-Entrega</option>
+            <option>Presupuesto Integral de Importación</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <label for="f-descripcion" class="block text-[10px] font-black tracking-widest text-[#0F2C59] uppercase mb-2">Descripción de la Mercadería</label>
+          <textarea id="f-descripcion" rows="4" name="descripcion"
+                    class="w-full border border-[#0F2C59]/20 px-4 py-3 text-sm focus:outline-2 focus:outline-[#D6AD60] focus:outline-offset-0 transition-colors resize-none"
+                    placeholder="Describa el producto a importar, cantidad estimada, país de origen, cualquier detalle relevante…"></textarea>
+        </div>
+        <!-- Error message container -->
+        <div id="form-error" class="hidden mb-4 p-3 bg-red-50 border border-red-200 text-red-600 text-xs font-semibold rounded">
+          Por favor completá todos los campos obligatorios (*) con información válida.
+        </div>
+        <p class="text-center text-[11px] text-[#0F2C59]/50 mb-4 font-light">Al enviar, abrimos WhatsApp con tu consulta pre-cargada.<br>Un asesor te responde personalmente — no un bot.</p>
+        <button type="submit"
+                class="w-full bg-[#0F2C59] text-white py-4 font-black text-[11px] tracking-[0.2em] uppercase hover:bg-[#1C6758] transition-all duration-300 focus-visible:outline-2 focus-visible:outline-[#D6AD60] focus-visible:outline-offset-2">
+          Enviar y Hablar con un Asesor →
+        </button>
+        <p class="text-center text-[11px] text-[#0F2C59]/35 mt-4 font-light">Respondemos en menos de 24&#160;horas hábiles · Sin compromiso</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-[#0A1E3D] border-t border-[#D6AD60]/20 pt-16 pb-8 px-6">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+      <div class="md:col-span-2">
+        <img src="assets/images/logos/Albabel-letrasblancas.png" alt="Albabel SRL" class="h-28 w-auto mb-5">
+        <p class="text-white/35 font-light text-sm leading-relaxed max-w-xs">
+          Importadora Exportadora SRL especializada en la integración de la cadena de suministro China-Argentina. Presencia en Argentina, Paraguay y China.
+        </p>
+        <div class="mt-5 text-xs text-white/20 font-light">CUIT: 30-71536298-4</div>
+      </div>
+
+      <div>
+        <h4 class="text-[10px] font-black tracking-widest text-[#D6AD60] uppercase mb-5">Servicios</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#servicios" class="text-white/35 hover:text-white text-sm font-light transition-colors">Gestión Aduanera</a></li>
+          <li><a href="#servicios" class="text-white/35 hover:text-white text-sm font-light transition-colors">Auditoría de Proveedores</a></li>
+          <li><a href="#servicios" class="text-white/35 hover:text-white text-sm font-light transition-colors">Logística Integral</a></li>
+          <li><a href="#servicios" class="text-white/35 hover:text-white text-sm font-light transition-colors">Consultoría de Importación</a></li>
+          <li><a href="#servicios" class="text-white/35 hover:text-white text-sm font-light transition-colors">Viajes a China</a></li>
+          <li><a href="#servicios" class="text-white/35 hover:text-white text-sm font-light transition-colors">Creación de Marca</a></li>
+          <li><a href="#servicios" class="text-white/35 hover:text-white text-sm font-light transition-colors">Fotografía Pre-Entrega</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-[10px] font-black tracking-widest text-[#D6AD60] uppercase mb-5">Contacto</h4>
+        <ul class="space-y-2.5 text-sm text-white/35 font-light">
+          <li>Valentín Gómez 2615, Piso 4</li>
+          <li>CP 1046 — CABA, Argentina</li>
+          <li><a href="tel:+5491135635778" class="hover:text-white transition-colors">+54 9 11 3563-5778</a></li>
+          <li><a href="tel:+5491160976727" class="hover:text-white transition-colors">+54 9 11 6097-6727</a></li>
+          <li><a href="mailto:contacto@albabel.com" class="hover:text-white transition-colors">contacto@albabel.com</a></li>
+        </ul>
+        <div class="mt-5 space-y-2">
+          <a href="#faq" class="block text-[#D6AD60]/60 hover:text-[#D6AD60] text-sm font-light transition-colors">Preguntas Frecuentes →</a>
+          <a href="#contacto" class="block text-white/40 hover:text-white text-sm font-light transition-colors">¿Primera importación? Hablemos. →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <p class="text-white/15 text-xs font-light">© 2026 Albabel SRL. Todos los derechos reservados.</p>
+      <p class="text-white/15 text-xs font-light">Importadora Exportadora SRL · Gestión Aduanera China-Argentina</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING WHATSAPP ===================== -->
+<a href="https://wa.me/5491135635778?text=Hola%20Albabel%2C%20quisiera%20consultar%20sobre%20una%20importaci%C3%B3n."
+   target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 group"
+   aria-label="Contactar por WhatsApp">
+  <div class="relative">
+    <div class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-35"></div>
+    <div class="relative w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-200">
+      <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </div>
+  </div>
+  <div class="absolute right-16 bottom-3.5 bg-white text-[#0F2C59] text-[11px] font-bold px-3 py-1.5 shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+    Consultar por WhatsApp
+  </div>
+</a>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+  });
+  mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  }));
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 60) {
+      nav.style.boxShadow = '0 8px 32px rgba(0,0,0,0.4)';
+      nav.style.background = 'rgba(15,44,89,0.97)';
+    } else {
+      nav.style.boxShadow = 'none';
+      nav.style.background = '#0F2C59';
+    }
+  }, { passive: true });
+
+  // Intersection Observer — reveal on scroll (todos los tipos)
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .animated-line')
+    .forEach(el => revealObserver.observe(el));
+
+  // ── Counter animation en Stats Bar ───────────────────────────
+  function animateCounter(el) {
+    const text = el.getAttribute('data-target');
+    const prefix = text.match(/^[+]/) ? '+' : '';
+    const suffix = text.match(/[^0-9+]+$/) ? text.match(/[^0-9+]+$/)[0] : '';
+    const target = parseInt(text.replace(/\D/g, ''), 10);
+    if (!target) { el.textContent = text; return; }
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const current = Math.round(eased * target);
+      el.textContent = prefix + current + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.stat-num[data-target]').forEach(animateCounter);
+        statObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  const statsSection = document.querySelector('[aria-label="Estadísticas"]');
+  if (statsSection) statObserver.observe(statsSection);
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(l => {
+      l.classList.remove('active');
+      if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+    });
+  }, { passive: true });
+
+  // ── FAQ Accordion ──────────────────────────────────────────────
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-answer').classList.remove('open');
+        openItem.querySelector('.faq-icon').textContent = '+';
+        openItem.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked (if was closed)
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.classList.add('open');
+        icon.textContent = '+'; // stays + but rotates via CSS
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ── Carousel ───────────────────────────────────────────────────
+  (function() {
+    const track = document.getElementById('carousel-track');
+    const wrapper = document.getElementById('carousel-wrapper');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const cards = track.querySelectorAll('.carousel-card');
+    const TOTAL = cards.length;
+    let current = 0;
+
+    function getStep() {
+      const card = cards[0];
+      return card.offsetWidth + 24; // card width + gap
+    }
+
+    function updateDots() {
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function goTo(index, animate) {
+      if (!animate) track.style.transition = 'none';
+      current = index;
+      track.style.transform = `translateX(-${current * getStep()}px)`;
+      updateDots();
+      if (!animate) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => { track.style.transition = ''; });
+        });
+      }
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (current >= TOTAL - 1) {
+        goTo(0, false);
+      } else {
+        goTo(current + 1, true);
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (current <= 0) {
+        goTo(TOTAL - 1, false);
+      } else {
+        goTo(current - 1, true);
+      }
+    });
+
+    // Dot click
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goTo(i, true));
+    });
+
+    // Touch/swipe
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) nextBtn.click();
+        else prevBtn.click();
+      }
+    }, { passive: true });
+
+    // Recalculate on resize
+    window.addEventListener('resize', () => {
+      track.style.transform = `translateX(-${current * getStep()}px)`;
+    }, { passive: true });
+
+    updateDots();
+  })();
+
+  // ── Form Validation & Submit ───────────────────────────────────
+  function validateForm(f) {
+    const errorBox = document.getElementById('form-error');
+    let valid = true;
+
+    // Reset
+    f.querySelectorAll('input, select').forEach(field => {
+      field.style.borderColor = '';
+    });
+    errorBox.classList.add('hidden');
+
+    // Check required fields
+    f.querySelectorAll('[required]').forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderColor = '#dc2626';
+        valid = false;
+      }
+    });
+
+    // Email format
+    const emailField = f.querySelector('[name="email"]');
+    if (emailField && emailField.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+      emailField.style.borderColor = '#dc2626';
+      valid = false;
+    }
+
+    if (!valid) errorBox.classList.remove('hidden');
+    return valid;
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const f = e.target;
+
+    if (!validateForm(f)) return;
+
+    const btn = f.querySelector('button[type="submit"]');
+    const nombre  = f.querySelector('[name="nombre"]').value.trim();
+    const empresa = f.querySelector('[name="empresa"]').value.trim();
+    const email   = f.querySelector('[name="email"]').value.trim();
+    const tipo    = f.querySelector('[name="tipo"]').value;
+    const desc    = f.querySelector('[name="descripcion"]').value.trim();
+
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    let msg = `Hola Albabel, soy ${nombre}`;
+    if (empresa) msg += ` de ${empresa}`;
+    msg += ` (${email}). Consulta: ${tipo}.`;
+    if (desc) msg += ` Mercadería: ${desc}`;
+
+    setTimeout(() => {
+      window.open(`https://wa.me/5491135635778?text=${encodeURIComponent(msg)}`, '_blank');
+      btn.textContent = '¡Consulta Enviada!';
+      btn.style.background = '#1C6758';
+      setTimeout(() => {
+        btn.textContent = 'Enviar Consulta';
+        btn.style.background = '';
+        btn.disabled = false;
+        f.reset();
+        document.getElementById('form-error').classList.add('hidden');
+        f.querySelectorAll('input, select').forEach(field => { field.style.borderColor = ''; });
+      }, 3500);
+    }, 700);
+  }
+</script>
+
+</body>
+</html>

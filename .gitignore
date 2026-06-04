@@ -7,3 +7,7 @@ assets/videos/hero.mp4
 .netlify/
 skills/
 skills-lock.json
+
+node_modules
+dist
+vite.config.js.timestamp-*

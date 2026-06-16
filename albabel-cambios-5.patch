@@ -1,0 +1,560 @@
+From 147bab611a7d7d24c05b7a21c3b995eb07d18499 Mon Sep 17 00:00:00 2001
+From: Albabel Dev <dev@albabel.local>
+Date: Mon, 15 Jun 2026 21:25:48 +0000
+Subject: [PATCH] =?UTF-8?q?Redise=C3=B1o=202026:=20videos=20centrados=20(e?=
+ =?UTF-8?q?stilo=20NOUFON),=20iconos=20de=20linea=20(sin=20emojis),=20card?=
+ =?UTF-8?q?s=20renovadas,=20navbar=20logo,=20FAQ=20y=20secciones=20condens?=
+ =?UTF-8?q?adas,=20animaciones?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/App.jsx             |   3 +-
+ src/lib.jsx             |  52 +++++++++++++++-
+ src/sections/Bottom.jsx |  42 ++++---------
+ src/sections/Mid.jsx    | 127 +++++++++++-----------------------------
+ src/sections/Top.jsx    |  72 ++++++++++-------------
+ src/styles.css          |  57 ++++++++++++++++++
+ 6 files changed, 187 insertions(+), 166 deletions(-)
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 172d059..3594770 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -1,5 +1,5 @@
+ import { Nav, Hero, Video1, Problema, Solucion } from './sections/Top.jsx'
+-import { Servicios, Diferenciales, Video2, Proceso } from './sections/Mid.jsx'
++import { Servicios, Diferenciales, Video2 } from './sections/Mid.jsx'
+ import { PresenciaChina, Carrusel, FAQ, VideoFinal, CTAFinal, Footer } from './sections/Bottom.jsx'
+ import { WaIcon, waLink } from './lib.jsx'
+ 
+@@ -15,7 +15,6 @@ export default function App() {
+         <Servicios />
+         <Diferenciales />
+         <Video2 />
+-        <Proceso />
+         <PresenciaChina />
+         <Carrusel />
+         <FAQ />
+diff --git a/src/lib.jsx b/src/lib.jsx
+index 601edc2..99e9db2 100644
+--- a/src/lib.jsx
++++ b/src/lib.jsx
+@@ -48,7 +48,57 @@ export function WaIcon() {
+   )
+ }
+ 
+-// Rutas de los videos. Si renombrás algún archivo, cambialo solo acá.
++// ---- Line icons (reemplazan a los emojis) ----
++const ICONS = {
++  search: '<circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.5" y2="16.5"/>',
++  shieldcheck: '<path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/>',
++  sliders: '<line x1="4" y1="8" x2="20" y2="8"/><circle cx="9" cy="8" r="2.4"/><line x1="4" y1="16" x2="20" y2="16"/><circle cx="15" cy="16" r="2.4"/>',
++  truck: '<rect x="2.5" y="6.5" width="11" height="9" rx="1"/><path d="M13.5 9.5h4l3 3v3h-7z"/><circle cx="6.5" cy="17.5" r="1.7"/><circle cx="17" cy="17.5" r="1.7"/>',
++  pin: '<path d="M12 21s-6.5-5.5-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.5 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/>',
++  chat: '<path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20.5l1.8-5A8 8 0 1 1 21 11.5z"/>',
++  globe: '<circle cx="12" cy="12" r="8.5"/><line x1="3.5" y1="12" x2="20.5" y2="12"/><ellipse cx="12" cy="12" rx="4" ry="8.5"/>',
++  shield: '<path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/>',
++  bolt: '<path d="M13 2L5 13.5h5.5L9.5 22 19 10h-5.5z"/>',
++  eye: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
++  ghost: '<path d="M5 21V11a7 7 0 0 1 14 0v10l-2.5-1.8L14 21l-2-1.8L10 21l-2.5-1.8z"/><circle cx="9.5" cy="11" r="1"/><circle cx="14.5" cy="11" r="1"/>',
++  file: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="16.5" x2="13" y2="16.5"/>',
++  anchor: '<circle cx="12" cy="5" r="2.3"/><line x1="12" y1="7.3" x2="12" y2="21"/><path d="M5 13a7 7 0 0 0 14 0"/><line x1="3.5" y1="13" x2="6" y2="13"/><line x1="18" y1="13" x2="20.5" y2="13"/>',
++  box: '<path d="M21 8l-9-5-9 5z"/><path d="M3 8v8l9 5 9-5V8"/><line x1="12" y1="13" x2="12" y2="21"/>',
++  clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.3 2"/>',
++  wallet: '<rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 9.5h13a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5H3"/><circle cx="16.5" cy="12.5" r="1.1"/>',
++  check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
++  arrow: '<line x1="4" y1="12" x2="19" y2="12"/><path d="M13 6l6 6-6 6"/>',
++}
++export function Icon({ name, size = 24, className = '' }) {
++  const p = ICONS[name]
++  if (!p) return null
++  return (
++    <svg className={`icon ${className}`} width={size} height={size} viewBox="0 0 24 24"
++      fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"
++      aria-hidden="true" dangerouslySetInnerHTML={{ __html: p }} />
++  )
++}
++
++// ---- Sección de video centrada (título arriba · video grande · descripción + CTA abajo) ----
++export function VideoFeature({ id, dark = false, eyebrow, eyebrowVariant = '', title, children, video, name, role, ctaMsg, ctaLabel = 'Hablar por WhatsApp' }) {
++  return (
++    <section id={id} className={`section video-feature${dark ? ' dark' : ''}`}>
++      <div className="container vf-inner">
++        <Reveal>
++          {eyebrow && <span className={`eyebrow ${eyebrowVariant}`}>{eyebrow}</span>}
++          <h2 className="h-lg vf-title">{title}</h2>
++        </Reveal>
++        <Reveal delay={.1} className="vf-video">
++          <VideoPlayer src={video} name={name} role={role} />
++        </Reveal>
++        <Reveal delay={.15}>
++          <div className="vf-desc lead">{children}</div>
++          {ctaMsg && <div className="vf-cta"><WaButton msg={ctaMsg}>{ctaLabel}</WaButton></div>}
++        </Reveal>
++      </div>
++    </section>
++  )
++}
+ // Los archivos deben estar en: public/assets/videos/
+ // OJO: en Netlify (Linux) las mayúsculas/minúsculas importan; estos nombres
+ // coinciden EXACTAMENTE con los archivos. Un valor puede ser un string o un
+diff --git a/src/sections/Bottom.jsx b/src/sections/Bottom.jsx
+index 551d881..cbe66c9 100644
+--- a/src/sections/Bottom.jsx
++++ b/src/sections/Bottom.jsx
+@@ -1,6 +1,6 @@
+ import { useState } from 'react'
+ import { motion, AnimatePresence } from 'framer-motion'
+-import { Reveal, WaButton, VideoPlayer, VIDEOS, waLink } from '../lib.jsx'
++import { Reveal, WaButton, VideoPlayer, VideoFeature, VIDEOS, waLink } from '../lib.jsx'
+ 
+ export function PresenciaChina() {
+   const dots = [
+@@ -81,18 +81,10 @@ export function Carrusel() {
+ const faqs = [
+   ['¿Cuál es el monto mínimo para importar con Albabel?', 'Trabajamos con operaciones desde USD 3.000. Por debajo de ese monto la importación rara vez es conveniente, por eso preferimos ser claros desde el inicio.'],
+   ['No tengo experiencia importando, ¿igual pueden ayudarme?', 'Sí. La mayoría de nuestros clientes no son expertos. Te guiamos paso a paso, desde definir qué producto conviene hasta que la mercadería llega a tu depósito.'],
+-  ['¿Cómo sé que el proveedor es confiable?', 'Auditamos cada proveedor antes de que pongas un dólar: verificamos que la fábrica sea real, pedimos muestras e inspeccionamos la calidad y la producción.'],
+   ['Tengo miedo de perder dinero. ¿Cómo lo evitan?', 'Reducimos el riesgo en cada etapa: validación de proveedores, control de muestras, coordinación de pagos e inspección antes de embarcar. No eliminamos el riesgo, lo gestionamos como lo haría alguien con +10 años en el terreno.'],
+-  ['¿Puedo hacerlo solo sin un intermediario?', 'Podés, pero cada error —un proveedor falso, un papel mal cargado, una clasificación aduanera incorrecta— cuesta tiempo y plata. Nosotros ya cometimos y resolvimos esos errores importando para nuestras propias marcas.'],
+-  ['¿Cuánto dinero necesito en total?', 'Depende del producto, volumen y logística. En el diagnóstico inicial te damos un estimado claro de la inversión total para que no haya sorpresas.'],
+-  ['¿Cuánto tarda una importación?', 'Varía según producto y vía (marítima o aérea). Te damos un cronograma realista desde el inicio y te mantenemos informado en cada etapa.'],
++  ['¿Cómo sé que el proveedor es confiable?', 'Auditamos cada proveedor antes de que pongas un dólar: verificamos que la fábrica sea real, pedimos muestras e inspeccionamos la calidad y la producción.'],
+   ['No sé qué producto importar. ¿Me asesoran?', 'Sí. En el diagnóstico analizamos tu negocio y objetivo para recomendarte qué producto tiene sentido importar y con qué proveedor.'],
+-  ['¿Cómo funciona la aduana?', 'Nos ocupamos de la gestión aduanera y la documentación. Te explicamos lo que necesitás saber sin tecnicismos y nos encargamos de que todo esté en regla.'],
+-  ['¿Qué pasa si el producto llega defectuoso?', 'Justamente para evitar eso inspeccionamos muestras y producción antes de embarcar. El control de calidad previo es parte central de nuestro trabajo.'],
+-  ['¿Trabajan con envíos marítimos y aéreos?', 'Sí, ambos. Recomendamos la vía según urgencia, volumen y costo, y coordinamos la consolidación de carga.'],
+-  ['¿En qué países tienen presencia?', 'Argentina, Paraguay, Venezuela y China, con socio operativo en China (Yiwu Sunray Trading Co., Ltd.).'],
+-  ['¿Puedo viajar a China con ustedes?', 'Sí. Coordinamos viajes a China para que conozcas fábricas y proveedores de primera mano, con nuestro equipo acompañándote.'],
+-  ['¿Pueden ayudarme a desarrollar mi propia marca?', 'Sí. Ofrecemos desarrollo de marca propia y fotografía de catálogo para que no importes un commodity, sino un producto con identidad.'],
++  ['¿Cuánto tarda una importación?', 'Varía según producto y vía (marítima o aérea). Te damos un cronograma realista desde el inicio y te mantenemos informado en cada etapa.'],
+   ['¿Qué los diferencia de un despachante o agente de compras?', 'Un despachante hace aduana; un agente de compras hace una parte. Nosotros somos un socio estratégico que acompaña toda la operación de punta a punta, con equipo propio en China y LATAM.'],
+   ['¿Cómo empiezo?', 'Escribinos por WhatsApp. Coordinamos una primera conversación de diagnóstico sin compromiso y te decimos con honestidad si podemos ayudarte.'],
+ ]
+@@ -135,24 +127,14 @@ export function FAQ() {
+ 
+ export function VideoFinal() {
+   return (
+-    <section className="section dark">
+-      <div className="container grid g-2" style={{ alignItems: 'center', gap: 48 }}>
+-        <Reveal>
+-          <span className="eyebrow light">Una invitación</span>
+-          <h2 className="h-lg" style={{ marginTop: 18 }}>Si llegaste hasta acá, ya sabés que no querés hacerlo solo</h2>
+-          <p className="lead" style={{ marginTop: 18 }}>
+-            Giuliano te cuenta, de persona a persona, por qué vale la pena dar el paso con un equipo que ya lo recorrió.
+-            Sin libretos de vendedor. Solo una invitación honesta a empezar la conversación.
+-          </p>
+-          <div style={{ marginTop: 26 }}>
+-            <WaButton msg="Hola Albabel, quiero empezar a importar desde China con ustedes." />
+-          </div>
+-        </Reveal>
+-        <Reveal delay={.15}>
+-          <VideoPlayer src={VIDEOS.giuliano} name="Giuliano" role="La invitación" />
+-        </Reveal>
+-      </div>
+-    </section>
++    <VideoFeature dark
++      eyebrow="Una invitación" eyebrowVariant="light"
++      title="Si llegaste hasta acá, ya sabés que no querés hacerlo solo"
++      video={VIDEOS.giuliano} name="Giuliano" role="La invitación"
++      ctaMsg="Hola Albabel, quiero empezar a importar desde China con ustedes.">
++      Giuliano te cuenta, de persona a persona, por qué vale la pena dar el paso con un equipo que ya lo recorrió.
++      Sin libretos de vendedor. Solo una invitación honesta a empezar la conversación.
++    </VideoFeature>
+   )
+ }
+ 
+@@ -208,7 +190,7 @@ export function Footer() {
+       <div className="container" style={{ padding: '56px 22px 30px' }}>
+         <div className="grid g-3" style={{ gap: 30 }}>
+           <div>
+-            <img src="/assets/images/logos/Albabel-letrasblancas.png" alt="Albabel" style={{ height: 36 }} />
++            <img src="/assets/images/logos/Albabel-wordmark.png" alt="Albabel" style={{ height: 26 }} />
+             <p style={{ marginTop: 16, maxWidth: 320, fontSize: '.92rem' }}>
+               Socio estratégico para importar desde China hacia Latinoamérica. Reducimos el riesgo y te acompañamos en toda la operación.
+             </p>
+diff --git a/src/sections/Mid.jsx b/src/sections/Mid.jsx
+index da1ada6..5f12fbf 100644
+--- a/src/sections/Mid.jsx
++++ b/src/sections/Mid.jsx
+@@ -1,14 +1,14 @@
+ import { motion } from 'framer-motion'
+-import { Reveal, WaButton, VideoPlayer, VIDEOS } from '../lib.jsx'
++import { Reveal, VideoFeature, Icon, VIDEOS } from '../lib.jsx'
+ 
+ const pillars = [
+-  { n: '01', ic: '🔎', t: 'Encontramos', d: 'Definimos qué producto te conviene y buscamos al proveedor correcto.',
++  { n: '01', ic: 'search', t: 'Encontramos', d: 'Definimos qué producto te conviene y buscamos al proveedor correcto.',
+     items: ['Búsqueda de proveedores', 'Sourcing y cotizaciones', 'Solicitud de muestras'] },
+-  { n: '02', ic: '✅', t: 'Verificamos', d: 'Confirmamos que la fábrica y el producto son reales antes de avanzar.',
++  { n: '02', ic: 'shieldcheck', t: 'Verificamos', d: 'Confirmamos que la fábrica y el producto son reales antes de avanzar.',
+     items: ['Auditoría de proveedores', 'Inspección de muestras', 'Negociación de condiciones'] },
+-  { n: '03', ic: '⚙️', t: 'Gestionamos', d: 'Coordinamos producción, pagos, papeles y consolidación de carga.',
++  { n: '03', ic: 'sliders', t: 'Gestionamos', d: 'Coordinamos producción, pagos, papeles y consolidación de carga.',
+     items: ['Consolidación de carga', 'Operaciones marítimas y aéreas', 'Gestión aduanera'] },
+-  { n: '04', ic: '📦', t: 'Entregamos', d: 'Tu mercadería llega a destino y, si querés, hacemos crecer tu marca.',
++  { n: '04', ic: 'truck', t: 'Entregamos', d: 'Tu mercadería llega a destino y, si querés, hacemos crecer tu marca.',
+     items: ['Logística internacional', 'Desarrollo de marca propia', 'Fotografía de catálogo'] },
+ ]
+ 
+@@ -21,25 +21,23 @@ export function Servicios() {
+             <span className="eyebrow">Cómo trabajamos</span>
+             <h2 className="h-lg" style={{ marginTop: 18 }}>Todo lo que necesitás, en cuatro pasos claros</h2>
+             <p className="lead" style={{ marginTop: 18 }}>
+-              Más de una docena de servicios, agrupados en un proceso simple. Vos te ocupás de tu negocio; nosotros, de todo lo demás.
++              De la idea a tu depósito. Vos te ocupás de tu negocio; nosotros, de todo lo demás.
+             </p>
+           </div>
+         </Reveal>
+-        <motion.div className="grid g-4" style={{ marginTop: 48 }}
++        <motion.div className="grid g-4 pillar-grid" style={{ marginTop: 52 }}
+           initial="hidden" whileInView="show" viewport={{ once: true }}
+           variants={{ hidden: {}, show: { transition: { staggerChildren: .12 } } }}>
+           {pillars.map((p) => (
+-            <motion.div key={p.t} className="card pillar"
++            <motion.div key={p.t} className="pillar"
+               variants={{ hidden: { opacity: 0, y: 36 }, show: { opacity: 1, y: 0, transition: { duration: .6 } } }}>
+               <span className="step-tag">{p.n}</span>
+-              <div className="pic">{p.ic}</div>
+-              <h3 className="h-md" style={{ fontSize: '1.4rem' }}>{p.t}</h3>
+-              <p className="muted" style={{ marginTop: 10 }}>{p.d}</p>
+-              <ul style={{ listStyle: 'none', marginTop: 16, display: 'grid', gap: 8 }}>
++              <span className="pic"><Icon name={p.ic} size={26} /></span>
++              <h3 className="pillar-t">{p.t}</h3>
++              <p className="muted" style={{ marginTop: 8 }}>{p.d}</p>
++              <ul className="pillar-list">
+                 {p.items.map((i) => (
+-                  <li key={i} style={{ fontSize: '.9rem', fontWeight: 600, display: 'flex', gap: 8 }}>
+-                    <span style={{ color: 'var(--green)' }}>•</span>{i}
+-                  </li>
++                  <li key={i}><Icon name="check" size={15} />{i}</li>
+                 ))}
+               </ul>
+             </motion.div>
+@@ -51,12 +49,12 @@ export function Servicios() {
+ }
+ 
+ const diffs = [
+-  { ic: '🇨🇳', t: 'Presencia real en China', d: 'Equipo y socio operativo (Yiwu Sunray Trading) donde ocurre el negocio. No dependemos de terceros.' },
+-  { ic: '🤝', t: 'Atención personalizada 24/7', d: 'Una persona responsable de tu operación, disponible cuando la necesitás —pese a la diferencia horaria.' },
+-  { ic: '🌎', t: 'Equipo internacional', d: 'Presencia en Argentina, Paraguay, Venezuela y China. Cobertura completa de la ruta.' },
+-  { ic: '🛡️', t: 'Acompañamiento integral', d: 'Desde la idea del producto hasta la entrega final. Nunca quedás solo en una etapa.' },
+-  { ic: '⚡', t: 'Respuesta rápida', d: 'Decisiones ágiles porque entendemos que en importación el tiempo es dinero.' },
+-  { ic: '🔍', t: 'Transparencia total', d: 'Sabés en todo momento dónde está tu plata, tu carga y tu operación.' },
++  { ic: 'pin', t: 'Presencia real en China', d: 'Equipo y socio operativo (Yiwu Sunray Trading) donde ocurre el negocio. No dependemos de terceros.' },
++  { ic: 'chat', t: 'Atención personalizada 24/7', d: 'Una persona responsable de tu operación, disponible cuando la necesitás —pese a la diferencia horaria.' },
++  { ic: 'globe', t: 'Equipo internacional', d: 'Presencia en Argentina, Paraguay, Venezuela y China. Cobertura completa de la ruta.' },
++  { ic: 'shield', t: 'Acompañamiento integral', d: 'Desde la idea del producto hasta la entrega final. Nunca quedás solo en una etapa.' },
++  { ic: 'bolt', t: 'Respuesta rápida', d: 'Decisiones ágiles porque entendemos que en importación el tiempo es dinero.' },
++  { ic: 'eye', t: 'Transparencia total', d: 'Sabés en todo momento dónde está tu plata, tu carga y tu operación.' },
+ ]
+ 
+ export function Diferenciales() {
+@@ -70,15 +68,15 @@ export function Diferenciales() {
+             <h2 className="h-lg" style={{ marginTop: 18 }}>Lo que nos hace un socio, no un proveedor más</h2>
+           </div>
+         </Reveal>
+-        <motion.div className="grid g-3" style={{ marginTop: 48 }}
++        <motion.div className="grid g-3 feat-grid" style={{ marginTop: 48 }}
+           initial="hidden" whileInView="show" viewport={{ once: true }}
+           variants={{ hidden: {}, show: { transition: { staggerChildren: .1 } } }}>
+           {diffs.map((d) => (
+-            <motion.div key={d.t} className="card" style={{ padding: 28 }}
+-              variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: .6 } } }}>
+-              <div style={{ fontSize: '2rem' }}>{d.ic}</div>
+-              <h3 style={{ fontSize: '1.22rem', marginTop: 14 }}>{d.t}</h3>
+-              <p className="muted" style={{ marginTop: 10 }}>{d.d}</p>
++            <motion.div key={d.t} className="feat"
++              variants={{ hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0, transition: { duration: .55 } } }}>
++              <span className="feat-ic"><Icon name={d.ic} size={26} /></span>
++              <h3 className="feat-t">{d.t}</h3>
++              <p className="muted feat-d">{d.d}</p>
+             </motion.div>
+           ))}
+         </motion.div>
+@@ -89,70 +87,15 @@ export function Diferenciales() {
+ 
+ export function Video2() {
+   return (
+-    <section className="section dark">
+-      <div className="container grid g-2" style={{ alignItems: 'center', gap: 48 }}>
+-        <Reveal delay={.15}>
+-          <VideoPlayer src={VIDEOS.dara} name="Dara" role="Oficinas y equipo en China" />
+-        </Reveal>
+-        <Reveal>
+-          <span className="eyebrow light">Conocé quién está detrás</span>
+-          <h2 className="h-lg" style={{ marginTop: 18 }}>“¿Y cómo sé que esto es real?”</h2>
+-          <p className="lead" style={{ marginTop: 18 }}>
+-            Dara te muestra las oficinas, el equipo y la ubicación real donde trabajamos en China.
+-            Antes de ayudar a otros a importar, los fundadores de Albabel desarrollaron sus propias operaciones
+-            —entre ellas <strong>Rey Blunt</strong>, marca reconocida en Argentina en parafernalia y accesorios.
+-          </p>
+-          <p className="muted" style={{ marginTop: 14 }}>
+-            Negociación con fábricas, control de calidad, logística internacional y posicionamiento de marca: lo aprendimos importando para nosotros mismos. Por eso sabemos lo que está en juego.
+-          </p>
+-          <div style={{ marginTop: 26 }}>
+-            <WaButton msg="Hola Albabel, vi el video de Dara y quiero coordinar una llamada." />
+-          </div>
+-        </Reveal>
+-      </div>
+-    </section>
+-  )
+-}
+-
+-const steps = [
+-  ['Diagnóstico', 'Entendemos tu producto, tu objetivo y tu presupuesto. Definimos si conviene importar y cómo.'],
+-  ['Búsqueda', 'Buscamos y preseleccionamos proveedores reales que cumplan tus requisitos.'],
+-  ['Validación', 'Auditamos la fábrica, pedimos muestras e inspeccionamos calidad antes de comprometer dinero.'],
+-  ['Compra', 'Negociamos condiciones, coordinamos el pago seguro y la producción.'],
+-  ['Logística', 'Consolidamos la carga, gestionamos el embarque marítimo o aéreo y la aduana.'],
+-  ['Entrega', 'Tu mercadería llega a destino. Acompañamos también el desarrollo de tu marca si lo necesitás.'],
+-]
+-
+-export function Proceso() {
+-  return (
+-    <section id="proceso" className="section" style={{ background: 'var(--white)' }}>
+-      <div className="container">
+-        <Reveal>
+-          <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto' }}>
+-            <span className="eyebrow">El proceso</span>
+-            <h2 className="h-lg" style={{ marginTop: 18 }}>Seis pasos. Cero zonas grises.</h2>
+-            <p className="lead" style={{ marginTop: 18 }}>Así de simple se siente importar cuando lo hacés con un socio que ya recorrió el camino.</p>
+-          </div>
+-        </Reveal>
+-        <div className="grid g-2" style={{ marginTop: 48, gap: '20px 56px' }}>
+-          {steps.map((s, i) => (
+-            <Reveal key={s[0]} delay={i * .05}>
+-              <div className="step-line" style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
+-                <span className="step-num">{i + 1}</span>
+-                <div>
+-                  <h3 style={{ fontSize: '1.2rem' }}>{s[0]}</h3>
+-                  <p className="muted" style={{ marginTop: 6 }}>{s[1]}</p>
+-                </div>
+-              </div>
+-            </Reveal>
+-          ))}
+-        </div>
+-        <Reveal delay={.1}>
+-          <div style={{ textAlign: 'center', marginTop: 46 }}>
+-            <WaButton msg="Hola Albabel, quiero empezar por el diagnóstico de mi importación." />
+-          </div>
+-        </Reveal>
+-      </div>
+-    </section>
++    <VideoFeature dark
++      eyebrow="Conocé quién está detrás" eyebrowVariant="light"
++      title="“¿Y cómo sé que esto es real?”"
++      video={VIDEOS.dara} name="Dara" role="Oficinas y equipo en China"
++      ctaMsg="Hola Albabel, vi el video de Dara y quiero coordinar una llamada.">
++      Dara te muestra las oficinas, el equipo y la ubicación real donde trabajamos en China.
++      Antes de ayudar a otros a importar, los fundadores de Albabel desarrollaron sus propias operaciones
++      —entre ellas <strong>Rey Blunt</strong>, marca reconocida en Argentina en parafernalia y accesorios.
++      Negociación con fábricas, control de calidad y logística: lo aprendimos importando para nosotros mismos.
++    </VideoFeature>
+   )
+ }
+diff --git a/src/sections/Top.jsx b/src/sections/Top.jsx
+index 7250de8..0964f72 100644
+--- a/src/sections/Top.jsx
++++ b/src/sections/Top.jsx
+@@ -1,6 +1,6 @@
+ import { useState, useEffect } from 'react'
+ import { motion } from 'framer-motion'
+-import { Reveal, WaButton, WaIcon, VideoPlayer, VIDEOS, waLink } from '../lib.jsx'
++import { Reveal, WaButton, VideoFeature, Icon, VIDEOS } from '../lib.jsx'
+ 
+ export function Nav() {
+   const [scrolled, setScrolled] = useState(false)
+@@ -13,14 +13,13 @@ export function Nav() {
+     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
+       <div className="container nav-row">
+         <a href="#top" aria-label="Albabel inicio">
+-          <img className="nav-logo" src="/assets/images/logos/Albabel-letrasblancas.png"
++          <img className="nav-logo" src="/assets/images/logos/Albabel-wordmark.png"
+                style={{ filter: scrolled ? 'invert(1)' : 'none', transition: 'filter .3s' }} alt="Albabel" />
+         </a>
+         <div className="nav-links">
+           <a href="#problema">El problema</a>
+           <a href="#servicios">Cómo trabajamos</a>
+           <a href="#casos">Casos</a>
+-          <a href="#proceso">Proceso</a>
+           <a href="#faq">Preguntas</a>
+         </div>
+         <WaButton msg="Hola Albabel, quiero asesorarme para importar desde China." className="btn btn-wa">WhatsApp</WaButton>
+@@ -67,34 +66,25 @@ export function Hero() {
+ 
+ export function Video1() {
+   return (
+-    <section className="section" style={{ background: 'var(--white)' }}>
+-      <div className="container grid g-2" style={{ alignItems: 'center', gap: 48 }}>
+-        <Reveal>
+-          <span className="eyebrow">La realidad de importar</span>
+-          <h2 className="h-lg" style={{ marginTop: 18 }}>Antes de hablar de servicios, hablemos con la verdad</h2>
+-          <p className="lead" style={{ marginTop: 18 }}>
+-            Diari, parte de nuestro equipo, cuenta sin filtros cómo es realmente importar desde China:
+-            lo bueno, lo difícil y por qué tener un socio que ya pasó por todo cambia las reglas del juego.
+-          </p>
+-          <p className="muted" style={{ marginTop: 14 }}>
+-            No es un pitch de ventas. Es la conversación que nos gustaría que cada importador escuche antes de poner un peso.
+-          </p>
+-        </Reveal>
+-        <Reveal delay={.15}>
+-          <VideoPlayer src={VIDEOS.diari} name="Diari" role="Equipo Albabel" />
+-        </Reveal>
+-      </div>
+-    </section>
++    <VideoFeature
++      eyebrow="La realidad de importar"
++      title="Antes de hablar de servicios, hablemos con la verdad"
++      video={VIDEOS.diari} name="Diari" role="Equipo Albabel"
++      ctaMsg="Hola Albabel, vi el video de Diari y quiero asesorarme.">
++      Diari, parte de nuestro equipo, cuenta sin filtros cómo es realmente importar desde China:
++      lo bueno, lo difícil y por qué tener un socio que ya pasó por todo cambia las reglas del juego.
++      No es un pitch de ventas, es la conversación que nos gustaría que escuches antes de poner un peso.
++    </VideoFeature>
+   )
+ }
+ 
+ const fears = [
+-  { ic: '🕳️', t: 'Proveedores fantasma', d: 'Pagaste, te mostraron fotos perfectas… y del otro lado nunca existió una fábrica real.' },
+-  { ic: '📄', t: 'Errores documentales', d: 'Un dato mal cargado y tu carga queda retenida en aduana sumando costos cada día.' },
+-  { ic: '🚢', t: 'Problemas aduaneros', d: 'Clasificaciones incorrectas, faltantes de documentación y multas que nadie te anticipó.' },
+-  { ic: '📦', t: 'Productos defectuosos', d: 'Abrís el contenedor y la calidad no tiene nada que ver con la muestra que aprobaste.' },
+-  { ic: '⏳', t: 'Retrasos eternos', d: 'Semanas de demora sin información clara, con tu capital inmovilizado y clientes esperando.' },
+-  { ic: '💸', t: 'Plata que no vuelve', d: 'El miedo más grande: invertir miles de dólares y que la operación termine en pérdida.' },
++  { ic: 'ghost', t: 'Proveedores fantasma', d: 'Pagaste, te mostraron fotos perfectas… y del otro lado nunca existió una fábrica real.' },
++  { ic: 'file', t: 'Errores documentales', d: 'Un dato mal cargado y tu carga queda retenida en aduana sumando costos cada día.' },
++  { ic: 'anchor', t: 'Problemas aduaneros', d: 'Clasificaciones incorrectas, faltantes de documentación y multas que nadie te anticipó.' },
++  { ic: 'box', t: 'Productos defectuosos', d: 'Abrís el contenedor y la calidad no tiene nada que ver con la muestra que aprobaste.' },
++  { ic: 'clock', t: 'Retrasos eternos', d: 'Semanas de demora sin información clara, con tu capital inmovilizado y clientes esperando.' },
++  { ic: 'wallet', t: 'Plata que no vuelve', d: 'El miedo más grande: invertir miles de dólares y que la operación termine en pérdida.' },
+ ]
+ 
+ export function Problema() {
+@@ -106,25 +96,25 @@ export function Problema() {
+             <span className="eyebrow light">Lo que nadie te cuenta</span>
+             <h2 className="h-lg" style={{ marginTop: 18 }}>China es una oportunidad enorme. También es donde más gente pierde plata.</h2>
+             <p className="lead" style={{ marginTop: 18 }}>
+-              No por falta de ganas, sino por hacerlo solos, sin alguien que conozca el terreno. Estos son los riesgos reales que enfrenta cualquier importador:
++              No por falta de ganas, sino por hacerlo solos, sin alguien que conozca el terreno. Estos son los riesgos reales:
+             </p>
+           </div>
+         </Reveal>
+-        <motion.div className="grid g-3" style={{ marginTop: 48 }}
++        <motion.div className="grid g-3 feat-grid" style={{ marginTop: 48 }}
+           initial="hidden" whileInView="show" viewport={{ once: true }}
+-          variants={{ hidden: {}, show: { transition: { staggerChildren: .1 } } }}>
++          variants={{ hidden: {}, show: { transition: { staggerChildren: .09 } } }}>
+           {fears.map((f) => (
+-            <motion.div key={f.t} className="card" style={{ padding: 28 }}
+-              variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: .6 } } }}>
+-              <div style={{ fontSize: '2rem' }}>{f.ic}</div>
+-              <h3 className="h-md" style={{ fontSize: '1.25rem', marginTop: 14 }}>{f.t}</h3>
+-              <p className="muted" style={{ marginTop: 10 }}>{f.d}</p>
++            <motion.div key={f.t} className="feat"
++              variants={{ hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0, transition: { duration: .55 } } }}>
++              <span className="feat-ic"><Icon name={f.ic} size={26} /></span>
++              <h3 className="feat-t">{f.t}</h3>
++              <p className="muted feat-d">{f.d}</p>
+             </motion.div>
+           ))}
+         </motion.div>
+         <Reveal delay={.1}>
+-          <p style={{ textAlign: 'center', marginTop: 44, fontSize: '1.3rem', fontWeight: 700, color: 'var(--gold)' }}>
+-            “Eso podría pasarme a mí.” — Exacto. Por eso existe Albabel.
++          <p className="problema-punch">
++            “Eso podría pasarme a mí.” <span>Exacto. Por eso existe Albabel.</span>
+           </p>
+         </Reveal>
+       </div>
+@@ -149,16 +139,16 @@ export function Solucion() {
+           </div>
+         </Reveal>
+         <Reveal delay={.15}>
+-          <div className="grid" style={{ gap: 16 }}>
++          <div className="grid" style={{ gap: 14 }}>
+             {[
+               ['Verificamos', 'Cada proveedor es auditado antes de que pongas un dólar.'],
+               ['Negociamos', 'Conseguimos condiciones de quien compra en China hace +10 años.'],
+               ['Controlamos', 'Inspección de muestras y producción antes de embarcar.'],
+               ['Acompañamos', 'Una sola persona responsable de tu operación, disponible 24/7.'],
+             ].map(([t, d]) => (
+-              <div key={t} className="card" style={{ padding: '20px 24px', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+-                <span style={{ color: 'var(--green)', fontWeight: 800, fontSize: '1.4rem' }}>✓</span>
+-                <div><strong style={{ fontSize: '1.08rem' }}>{t}</strong><p className="muted" style={{ marginTop: 4 }}>{d}</p></div>
++              <div key={t} className="check-item">
++                <span className="check-ic"><Icon name="check" size={18} /></span>
++                <div><strong style={{ fontSize: '1.08rem' }}>{t}</strong><p className="muted" style={{ marginTop: 3 }}>{d}</p></div>
+               </div>
+             ))}
+           </div>
+diff --git a/src/styles.css b/src/styles.css
+index 6d88f90..da906d0 100644
+--- a/src/styles.css
++++ b/src/styles.css
+@@ -144,3 +144,60 @@ footer{background:var(--navy-900);color:rgba(255,255,255,.7);}
+ footer a:hover{color:var(--gold);}
+ 
+ .hidden-h{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
++
++/* ============ REDISEÑO 2026 ============ */
++:root{ --section-y:clamp(58px,7.5vw,108px); }
++
++/* logo navbar (wordmark recortado, más grande y legible) */
++.nav-logo{height:32px;max-width:60vw;}
++.nav.scrolled .nav-logo{height:28px;}
++
++/* iconos de línea */
++.icon{display:block;flex:none;}
++
++/* nav links: subrayado animado */
++.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
++.nav-links a:hover::after{transform:scaleX(1);}
++
++/* sección de video centrada (estilo NOUFON) */
++.video-feature .vf-inner{max-width:920px;margin:0 auto;text-align:center;}
++.vf-title{margin-top:16px;}
++.vf-video{max-width:880px;margin:38px auto 30px;}
++.vf-desc{max-width:700px;margin:0 auto;}
++.vf-desc strong{color:inherit;font-weight:800;}
++.vf-cta{margin-top:30px;}
++
++/* feature panels (Problema / Diferenciales) — reemplazan a las cards con emoji */
++.feat{position:relative;padding:26px 24px;border-radius:16px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);transition:border-color .35s,background .35s,transform .35s;}
++.feat:hover{border-color:rgba(214,173,96,.5);background:rgba(255,255,255,.06);transform:translateY(-5px);}
++.feat-ic{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:13px;color:var(--gold);background:rgba(214,173,96,.13);border:1px solid rgba(214,173,96,.28);transition:background .35s,color .35s;}
++.feat:hover .feat-ic{background:var(--gold);color:var(--navy-900);}
++.feat-t{font-size:1.2rem;margin-top:16px;color:#fff;letter-spacing:-.01em;}
++.feat-d{margin-top:9px;font-size:.96rem;}
++
++/* punch line del Problema */
++.problema-punch{text-align:center;margin-top:48px;font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:800;color:#fff;letter-spacing:-.01em;}
++.problema-punch span{display:block;color:var(--gold);font-weight:700;font-size:.74em;margin-top:8px;}
++
++/* pillars (Servicios) — números grandes + icono + accent animado */
++.pillar{position:relative;padding:32px 26px 28px;border-radius:18px;border:1px solid var(--line);background:#fff;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s;}
++.pillar::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--green));transform:scaleX(0);transform-origin:left;transition:transform .45s ease;}
++.pillar:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent;}
++.pillar:hover::before{transform:scaleX(1);}
++.pillar .step-tag{position:absolute;top:18px;right:22px;font-weight:800;font-size:2.7rem;color:rgba(15,44,89,.07);letter-spacing:-.04em;}
++.pillar .pic{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:var(--gold-soft);color:var(--navy);margin-bottom:16px;font-size:inherit;transition:background .35s,color .35s;}
++.pillar:hover .pic{background:var(--navy);color:var(--gold);}
++.pillar-t{font-size:1.35rem;letter-spacing:-.01em;}
++.pillar-list{list-style:none;margin-top:16px;display:grid;gap:9px;}
++.pillar-list li{display:flex;gap:9px;align-items:center;font-size:.9rem;font-weight:600;color:var(--navy);}
++.pillar-list li .icon{color:var(--green);}
++
++/* checklist (Solución) — sin cards, con divisor fino */
++.check-item{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px solid rgba(15,44,89,.08);}
++.check-item:last-child{border-bottom:none;}
++.check-ic{flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--green);color:#fff;}
++
++/* entrada suave al revelar */
++@media (prefers-reduced-motion: no-preference){
++  .pillar,.feat{will-change:transform;}
++}
+-- 
+2.43.0
+

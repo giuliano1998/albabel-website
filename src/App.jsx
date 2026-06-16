@@ -1,5 +1,5 @@
 import { Nav, Hero, Video1, Problema, Solucion } from './sections/Top.jsx'
-import { Servicios, Diferenciales, CasoLeTapis, Video2, Proceso } from './sections/Mid.jsx'
+import { Servicios, Diferenciales, Video2 } from './sections/Mid.jsx'
 import { PresenciaChina, Carrusel, FAQ, VideoFinal, CTAFinal, Footer } from './sections/Bottom.jsx'
 import { WaIcon, waLink } from './lib.jsx'
 
@@ -14,9 +14,7 @@ export default function App() {
         <Solucion />
         <Servicios />
         <Diferenciales />
-        <CasoLeTapis />
         <Video2 />
-        <Proceso />
         <PresenciaChina />
         <Carrusel />
         <FAQ />

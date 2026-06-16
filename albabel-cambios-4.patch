@@ -1,0 +1,52 @@
+From 86d8eb33e8559d748a0e6efcd31e7d8423f4bc21 Mon Sep 17 00:00:00 2001
+From: Albabel Dev <dev@albabel.local>
+Date: Mon, 15 Jun 2026 12:45:10 +0000
+Subject: [PATCH] Autoplay (mute) de videos al hacer scroll a su seccion; pausa
+ al salir
+
+---
+ src/lib.jsx | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/src/lib.jsx b/src/lib.jsx
+index e6574c9..601edc2 100644
+--- a/src/lib.jsx
++++ b/src/lib.jsx
+@@ -1,3 +1,4 @@
++import { useRef, useEffect } from 'react'
+ import { motion } from 'framer-motion'
+ 
+ export const WA_NUMBER = '5491135635778'
+@@ -70,6 +71,20 @@ function videoType(src = '') {
+ 
+ export function VideoPlayer({ src, poster, name, role, vertical = false }) {
+   const sources = Array.isArray(src) ? src : [src]
++  const ref = useRef(null)
++  useEffect(() => {
++    const v = ref.current
++    if (!v) return
++    v.muted = true // requerido por los navegadores para autoplay
++    const io = new IntersectionObserver((entries) => {
++      for (const e of entries) {
++        if (e.isIntersecting) v.play().catch(() => {})
++        else v.pause()
++      }
++    }, { threshold: 0.5 })
++    io.observe(v)
++    return () => io.disconnect()
++  }, [])
+   return (
+     <motion.div
+       className={`video-ph is-video${vertical ? ' vertical' : ''}`}
+@@ -78,7 +93,7 @@ export function VideoPlayer({ src, poster, name, role, vertical = false }) {
+       viewport={{ once: true }}
+       transition={{ duration: .7 }}
+     >
+-      <video controls playsInline preload="metadata" poster={poster}>
++      <video ref={ref} controls playsInline muted preload="metadata" poster={poster}>
+         {sources.map((s) => <source key={s} src={s} type={videoType(s)} />)}
+         Tu navegador no puede reproducir este video.
+       </video>
+-- 
+2.43.0
+

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Reveal, WaButton, WaIcon, VideoPlaceholder, waLink } from '../lib.jsx'
+import { Reveal, WaButton, VideoFeature, Icon, VIDEOS } from '../lib.jsx'
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -13,14 +13,13 @@ export function Nav() {
     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
       <div className="container nav-row">
         <a href="#top" aria-label="Albabel inicio">
-          <img className="nav-logo" src="/assets/images/logos/Albabel-letrasblancas.png"
+          <img className="nav-logo" src="/assets/images/logos/Albabel-wordmark.png"
                style={{ filter: scrolled ? 'invert(1)' : 'none', transition: 'filter .3s' }} alt="Albabel" />
         </a>
         <div className="nav-links">
           <a href="#problema">El problema</a>
           <a href="#servicios">Cómo trabajamos</a>
           <a href="#casos">Casos</a>
-          <a href="#proceso">Proceso</a>
           <a href="#faq">Preguntas</a>
         </div>
         <WaButton msg="Hola Albabel, quiero asesorarme para importar desde China." className="btn btn-wa">WhatsApp</WaButton>
@@ -67,34 +66,25 @@ export function Hero() {
 
 export function Video1() {
   return (
-    <section className="section" style={{ background: 'var(--white)' }}>
-      <div className="container grid g-2" style={{ alignItems: 'center', gap: 48 }}>
-        <Reveal>
-          <span className="eyebrow">La realidad de importar</span>
-          <h2 className="h-lg" style={{ marginTop: 18 }}>Antes de hablar de servicios, hablemos con la verdad</h2>
-          <p className="lead" style={{ marginTop: 18 }}>
-            Diari, parte de nuestro equipo, cuenta sin filtros cómo es realmente importar desde China:
-            lo bueno, lo difícil y por qué tener un socio que ya pasó por todo cambia las reglas del juego.
-          </p>
-          <p className="muted" style={{ marginTop: 14 }}>
-            No es un pitch de ventas. Es la conversación que nos gustaría que cada importador escuche antes de poner un peso.
-          </p>
-        </Reveal>
-        <Reveal delay={.15}>
-          <VideoPlaceholder tag="Video 1" name="Diari" role="Equipo Albabel · La realidad de importar desde China" />
-        </Reveal>
-      </div>
-    </section>
+    <VideoFeature
+      eyebrow="La realidad de importar"
+      title="Antes de hablar de servicios, hablemos con la verdad"
+      video={VIDEOS.diari} name="Diari" role="Equipo Albabel"
+      ctaMsg="Hola Albabel, vi el video de Diari y quiero asesorarme.">
+      Diari, parte de nuestro equipo, cuenta sin filtros cómo es realmente importar desde China:
+      lo bueno, lo difícil y por qué tener un socio que ya pasó por todo cambia las reglas del juego.
+      No es un pitch de ventas, es la conversación que nos gustaría que escuches antes de poner un peso.
+    </VideoFeature>
   )
 }
 
 const fears = [
-  { ic: '🕳️', t: 'Proveedores fantasma', d: 'Pagaste, te mostraron fotos perfectas… y del otro lado nunca existió una fábrica real.' },
-  { ic: '📄', t: 'Errores documentales', d: 'Un dato mal cargado y tu carga queda retenida en aduana sumando costos cada día.' },
-  { ic: '🚢', t: 'Problemas aduaneros', d: 'Clasificaciones incorrectas, faltantes de documentación y multas que nadie te anticipó.' },
-  { ic: '📦', t: 'Productos defectuosos', d: 'Abrís el contenedor y la calidad no tiene nada que ver con la muestra que aprobaste.' },
-  { ic: '⏳', t: 'Retrasos eternos', d: 'Semanas de demora sin información clara, con tu capital inmovilizado y clientes esperando.' },
-  { ic: '💸', t: 'Plata que no vuelve', d: 'El miedo más grande: invertir miles de dólares y que la operación termine en pérdida.' },
+  { ic: 'ghost', t: 'Proveedores fantasma', d: 'Pagaste, te mostraron fotos perfectas… y del otro lado nunca existió una fábrica real.' },
+  { ic: 'file', t: 'Errores documentales', d: 'Un dato mal cargado y tu carga queda retenida en aduana sumando costos cada día.' },
+  { ic: 'anchor', t: 'Problemas aduaneros', d: 'Clasificaciones incorrectas, faltantes de documentación y multas que nadie te anticipó.' },
+  { ic: 'box', t: 'Productos defectuosos', d: 'Abrís el contenedor y la calidad no tiene nada que ver con la muestra que aprobaste.' },
+  { ic: 'clock', t: 'Retrasos eternos', d: 'Semanas de demora sin información clara, con tu capital inmovilizado y clientes esperando.' },
+  { ic: 'wallet', t: 'Plata que no vuelve', d: 'El miedo más grande: invertir miles de dólares y que la operación termine en pérdida.' },
 ]
 
 export function Problema() {
@@ -106,25 +96,25 @@ export function Problema() {
             <span className="eyebrow light">Lo que nadie te cuenta</span>
             <h2 className="h-lg" style={{ marginTop: 18 }}>China es una oportunidad enorme. También es donde más gente pierde plata.</h2>
             <p className="lead" style={{ marginTop: 18 }}>
-              No por falta de ganas, sino por hacerlo solos, sin alguien que conozca el terreno. Estos son los riesgos reales que enfrenta cualquier importador:
+              No por falta de ganas, sino por hacerlo solos, sin alguien que conozca el terreno. Estos son los riesgos reales:
             </p>
           </div>
         </Reveal>
-        <motion.div className="grid g-3" style={{ marginTop: 48 }}
+        <motion.div className="grid g-3 feat-grid" style={{ marginTop: 48 }}
           initial="hidden" whileInView="show" viewport={{ once: true }}
-          variants={{ hidden: {}, show: { transition: { staggerChildren: .1 } } }}>
+          variants={{ hidden: {}, show: { transition: { staggerChildren: .09 } } }}>
           {fears.map((f) => (
-            <motion.div key={f.t} className="card" style={{ padding: 28 }}
-              variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: .6 } } }}>
-              <div style={{ fontSize: '2rem' }}>{f.ic}</div>
-              <h3 className="h-md" style={{ fontSize: '1.25rem', marginTop: 14 }}>{f.t}</h3>
-              <p className="muted" style={{ marginTop: 10 }}>{f.d}</p>
+            <motion.div key={f.t} className="feat"
+              variants={{ hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0, transition: { duration: .55 } } }}>
+              <span className="feat-ic"><Icon name={f.ic} size={26} /></span>
+              <h3 className="feat-t">{f.t}</h3>
+              <p className="muted feat-d">{f.d}</p>
             </motion.div>
           ))}
         </motion.div>
         <Reveal delay={.1}>
-          <p style={{ textAlign: 'center', marginTop: 44, fontSize: '1.3rem', fontWeight: 700, color: 'var(--gold)' }}>
-            “Eso podría pasarme a mí.” — Exacto. Por eso existe Albabel.
+          <p className="problema-punch">
+            “Eso podría pasarme a mí.” <span>Exacto. Por eso existe Albabel.</span>
           </p>
         </Reveal>
       </div>
@@ -149,16 +139,16 @@ export function Solucion() {
           </div>
         </Reveal>
         <Reveal delay={.15}>
-          <div className="grid" style={{ gap: 16 }}>
+          <div className="grid" style={{ gap: 14 }}>
             {[
               ['Verificamos', 'Cada proveedor es auditado antes de que pongas un dólar.'],
               ['Negociamos', 'Conseguimos condiciones de quien compra en China hace +10 años.'],
               ['Controlamos', 'Inspección de muestras y producción antes de embarcar.'],
               ['Acompañamos', 'Una sola persona responsable de tu operación, disponible 24/7.'],
             ].map(([t, d]) => (
-              <div key={t} className="card" style={{ padding: '20px 24px', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                <span style={{ color: 'var(--green)', fontWeight: 800, fontSize: '1.4rem' }}>✓</span>
-                <div><strong style={{ fontSize: '1.08rem' }}>{t}</strong><p className="muted" style={{ marginTop: 4 }}>{d}</p></div>
+              <div key={t} className="check-item">
+                <span className="check-ic"><Icon name="check" size={18} /></span>
+                <div><strong style={{ fontSize: '1.08rem' }}>{t}</strong><p className="muted" style={{ marginTop: 3 }}>{d}</p></div>
               </div>
             ))}
           </div>

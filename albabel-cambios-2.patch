@@ -1,0 +1,46 @@
+From ad033d3b3bc7b6b0d40ba36627c18572bb20b304 Mon Sep 17 00:00:00 2001
+From: Albabel Dev <dev@albabel.local>
+Date: Sat, 13 Jun 2026 20:20:17 +0000
+Subject: [PATCH] Videos a .mp4 (compatibilidad navegador) y quitar 'cierre
+ humano' de Giuliano
+
+---
+ src/lib.jsx             | 8 ++++----
+ src/sections/Bottom.jsx | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/src/lib.jsx b/src/lib.jsx
+index e1f2e07..e6574c9 100644
+--- a/src/lib.jsx
++++ b/src/lib.jsx
+@@ -53,10 +53,10 @@ export function WaIcon() {
+ // coinciden EXACTAMENTE con los archivos. Un valor puede ser un string o un
+ // array (el navegador usa el primero que exista; sirve de respaldo).
+ export const VIDEOS = {
+-  diari: ['/assets/videos/Dlari-Video.MOV', '/assets/videos/Diari-Video.MOV', '/assets/videos/DIari-Video.MOV'],
+-  dara: '/assets/videos/Dara-Video.MOV',
+-  giuliano: '/assets/videos/Giuliano-Video.MOV',
+-  casoYatif: '/assets/videos/CasodeExito1.MOV',
++  diari: ['/assets/videos/Dlari-Video.mp4', '/assets/videos/Diari-Video.mp4', '/assets/videos/DIari-Video.mp4'],
++  dara: '/assets/videos/Dara-Video.mp4',
++  giuliano: '/assets/videos/Giuliano-Video.mp4',
++  casoYatif: '/assets/videos/CasodeExito1.mp4',
+   casoLeTapis: '/assets/videos/CasodeExito2.MP4',
+ }
+ 
+diff --git a/src/sections/Bottom.jsx b/src/sections/Bottom.jsx
+index 942b9ca..551d881 100644
+--- a/src/sections/Bottom.jsx
++++ b/src/sections/Bottom.jsx
+@@ -149,7 +149,7 @@ export function VideoFinal() {
+           </div>
+         </Reveal>
+         <Reveal delay={.15}>
+-          <VideoPlayer src={VIDEOS.giuliano} name="Giuliano" role="La invitación · cierre humano" />
++          <VideoPlayer src={VIDEOS.giuliano} name="Giuliano" role="La invitación" />
+         </Reveal>
+       </div>
+     </section>
+-- 
+2.43.0
+

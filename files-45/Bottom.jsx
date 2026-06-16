@@ -190,7 +190,7 @@ export function Footer() {
       <div className="container" style={{ padding: '56px 22px 30px' }}>
         <div className="grid g-3" style={{ gap: 30 }}>
           <div>
-            <span className="footer-wordmark">ALBABEL</span>
+            <img src="/assets/images/logos/Albabel-wordmark.png" alt="Albabel" style={{ height: 26 }} />
             <p style={{ marginTop: 16, maxWidth: 320, fontSize: '.92rem' }}>
               Socio estratégico para importar desde China hacia Latinoamérica. Reducimos el riesgo y te acompañamos en toda la operación.
             </p>

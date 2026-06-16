@@ -12,7 +12,10 @@ export function Nav() {
   return (
     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
       <div className="container nav-row">
-        <a href="#top" aria-label="Albabel inicio" className="nav-wordmark">ALBABEL</a>
+        <a href="#top" aria-label="Albabel inicio">
+          <img className="nav-logo" src="/assets/images/logos/Albabel-wordmark.png"
+               style={{ filter: scrolled ? 'invert(1)' : 'none', transition: 'filter .3s' }} alt="Albabel" />
+        </a>
         <div className="nav-links">
           <a href="#problema">El problema</a>
           <a href="#servicios">Cómo trabajamos</a>

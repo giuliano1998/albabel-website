@@ -108,7 +108,8 @@ export const VIDEOS = {
   dara: '/assets/videos/Dara-Video.mp4',
   giuliano: '/assets/videos/Giuliano-Video.mp4',
   casoYatif: '/assets/videos/CasodeExito1.mp4',
-  casoLeTapis: '/assets/videos/caso-le-tapis.mp4',
+  casoLeTapis: '/assets/videos/letapis.mp4',
+  casoDifanDeco: '/assets/videos/defandeco.mp4',
 }
 
 function videoType(src = '') {

@@ -44,8 +44,9 @@ export function PresenciaChina() {
 }
 
 const casos = [
-  { src: VIDEOS.casoYatif, marca: 'Yatif', rubro: 'Materiales de PVC' },
-  { src: VIDEOS.casoLeTapis, marca: 'Le Tapis', rubro: 'Refinería premium' },
+  { src: VIDEOS.casoYatif, marca: 'Yatif', rubro: 'Materiales de PVC', url: 'https://yatifstore.com/' },
+  { src: VIDEOS.casoLeTapis, marca: 'Le Tapis', rubro: 'Refinería premium', url: 'https://www.letapis.com.ar/' },
+  { src: VIDEOS.casoDifanDeco, marca: 'Difan Deco', rubro: 'Decoración', url: 'https://www.difandeco.com.ar/' },
 ]
 
 export function Carrusel() {
@@ -61,13 +62,19 @@ export function Carrusel() {
             </p>
           </div>
         </Reveal>
-        <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div className="casos-track">
           {casos.map((c, i) => (
-            <motion.div key={c.marca} style={{ flex: '0 1 300px', maxWidth: 320 }}
+            <motion.div key={c.marca} className="caso-item"
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .5, delay: i * .1 }}>
               <VideoPlayer src={c.src} vertical />
               <div className="card" style={{ padding: '18px 20px', marginTop: 14, textAlign: 'center' }}>
                 <strong style={{ fontSize: '1.15rem' }}>{c.marca}</strong>
+                {c.url && (
+                  <a href={c.url} target="_blank" rel="noopener noreferrer"
+                     style={{ display: 'block', fontSize: '.85rem', marginTop: 4, color: 'var(--green, #1f9d6e)', textDecoration: 'none', wordBreak: 'break-all' }}>
+                    {c.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                  </a>
+                )}
                 <p className="muted" style={{ fontSize: '.9rem', marginTop: 4 }}>{c.rubro}</p>
               </div>
             </motion.div>

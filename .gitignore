@@ -12,3 +12,8 @@ node_modules
 dist
 vite.config.js.timestamp-*
 *.fuse_hidden*
+
+# Videos fuente duplicados (la version publicada vive en public/assets/videos/)
+/assets/videos/
+/CasodeExito2.MP4
+public/assets/videos/caso-le-tapis.mp4

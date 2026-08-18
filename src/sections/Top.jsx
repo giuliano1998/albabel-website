@@ -18,6 +18,7 @@ export function Nav() {
           <a href="#servicios">Cómo trabajamos</a>
           <a href="#casos">Casos</a>
           <a href="#faq">Preguntas</a>
+          <a href="/cotizar.html">Cotizar</a>
         </div>
         <WaButton msg="Hola Albabel, quiero asesorarme para importar desde China." className="btn btn-wa">WhatsApp</WaButton>
       </div>
@@ -46,8 +47,8 @@ export function Hero() {
         </motion.p>
         <motion.div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', marginTop: 34 }}
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .5, duration: .7 }}>
-          <WaButton msg="Hola Albabel, quiero importar desde China y necesito asesoramiento." />
-          <a className="btn btn-ghost on-dark" href="#servicios">Ver cómo funciona</a>
+          <a className="btn btn-gold" href="/cotizar.html">Pedir cotización</a>
+          <WaButton msg="Hola Albabel, quiero importar desde China y necesito asesoramiento." className="btn btn-ghost on-dark">Hablar por WhatsApp</WaButton>
         </motion.div>
         <motion.div className="trust" style={{ justifyContent: 'center', marginTop: 46 }}
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .8, duration: .8 }}>
@@ -132,7 +133,7 @@ export function Solucion() {
             toda la operación, de punta a punta, para que cada decisión sea informada y cada paso esté cubierto.
           </p>
           <div style={{ marginTop: 28 }}>
-            <WaButton msg="Hola Albabel, quiero importar reduciendo riesgos. ¿Cómo empezamos?" />
+            <a className="btn btn-gold" href="/cotizar.html">Pedir cotización</a>
           </div>
         </Reveal>
         <Reveal delay={.15}>

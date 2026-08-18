@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Reveal, WaButton, VideoPlayer, VideoFeature, VIDEOS, waLink } from '../lib.jsx'
+import { Reveal, WaButton, VideoPlayer, VideoFeature, VIDEOS } from '../lib.jsx'
 
 export function PresenciaChina() {
   const dots = [
@@ -164,11 +164,29 @@ export function CTAFinal() {
           <p className="muted" style={{ marginTop: 16, fontSize: '.86rem' }}>Atención personalizada 24/7 · Argentina · Paraguay · Venezuela · China</p>
         </Reveal>
         <Reveal delay={.15}>
-          <form className="card" style={{ padding: 30 }} onSubmit={(e) => {
+          <form className="card" style={{ padding: 30 }} onSubmit={async (e) => {
             e.preventDefault()
             const f = e.target
-            const msg = `Hola Albabel, soy ${f.nombre.value}. Quiero importar: ${f.producto.value}. Inversión estimada: ${f.monto.value}.`
-            window.open(waLink(msg), '_blank')
+            const btn = f.querySelector('button[type="submit"]')
+            if (btn) { btn.disabled = true; btn.textContent = 'Enviando...' }
+            try {
+              await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify({
+                  access_key: 'fd203194-ba4e-4067-b179-06aeabe07e34',
+                  subject: `Cotización web — ${f.nombre.value} — ${f.producto.value}`,
+                  from_name: 'Formulario Albabel',
+                  nombre: f.nombre.value,
+                  producto: f.producto.value,
+                  monto: f.monto.value,
+                  origen: 'formulario home'
+                })
+              })
+            } catch (err) {
+              // Si falla el envío igual llevamos a la confirmación; el lead se recupera por WhatsApp.
+            }
+            window.location.href = '/gracias.html'
           }}>
             <h3 className="h-md" style={{ fontSize: '1.3rem', marginBottom: 18 }}>Dejanos tus datos</h3>
             <div className="field"><label>Nombre</label><input name="nombre" required placeholder="Tu nombre" /></div>
